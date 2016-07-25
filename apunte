@@ -1,0 +1,698 @@
+
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+
+\begin{document}
+
+\section{Introducción y Fundamentos}
+Hay dos Modelos fundamentales de arquitecturas de redes. Estos se basan en varias capas que son niveles de abstracción que brindan servicios a las capas superiores.
+
+Se impuso la arquitecturas TCP/IP sobre el modelo OSI:
+\footnote{http://spectrum.ieee.org/computing/networks/osi-the-internet-that-
+wasnt}
+
+\subsection{Nivel Físico}
+
+Diagrama de sistema de comunicaciones:
+El mensaje se envía por un medio que sufre de ruido. Luego el receptor obtiene un mensaje que contiene variaciones.
+
+Fundamentos de las Señales
+SOn ondas electromagnetivas que se propagan a través de un medio:
+En el vacío a la velocidad de la luz (c)
+En otros medios a una velocidad menor, tomada como factor de c
+
+La onda electomagnetica es un campo electrico y magentico que se propaga por un medio a una velocidad que depende de este. La onda vibra a una frecuencia determinada, con un comportamiento periodico en el eje longitudinal de su propagacion.
+EL periodo se denomida longitud de onda y se define como l=v/f (con c la velocidad y f la frecuencia de oscilacion)
+
+Problemas: 
+La onda, en el caso de chocar con imperfecciones produce reflexiones.
+Además si el medio tiene perdidas se puede atenuar (generalmente se atenuan propocianalemte a las distancias recorridas)
+
+Longitud de onda: es la distancia espacial entre dos puntos correspondientes a la misma fase en dos ciclos consecutivos.
+
+Ancho de banda:
+Frecuencia de corte: frecuencia donde se produce una atenuacion de 3dB
+
+Series de Fourier:
+TOdas las funciones periodiasse pueden expresar como sumas de senos y cosenos.
+
+
+$f ( t ) = 1/2 a_0 + \displaystyle \sum_{i=1}^{\infty} [ a_n cos( n \omega_0 t ) + b_n sen ( n \omega_0 t ) ]$
+
+Una onda cuadrada se puede representar como una serie infinira de sonoides armonicamente relacionados.
+
+
+\subsection{Teoria de la Información (Claude Shannon)}
+Dos Teoremas Fundacionales:
+\begin{enumerate}
+\item Codificación para una fuente sin ruido
+\item Codificación para un canal ruidoso: Describe la máxima eficiencia posible de un
+método de corrección de errores (codificación) frente a
+los niveles de ruido y de corrupción de los datos.Es decir, brinda un límite para la transmisión de bits. No dice nada sobre como implementar dicha codificación.
+\end{enumerate}
+
+Información: Sea E un suceso que puede prensetarse con probabilidad P(E). Cuando E tiene lugar decimos que hemos recibido
+I(E) = log 1/P(E) unidades de información.
+
+Notar que si P(1/2), I(E)= 1 bit. ES decir, un bit es la cantidad de informacíon obtenida al especificar una de dos posibles alternativas igualmente probables.
+
+Si tenemos una fuente emitiendo una secuencia de símbolos pertenecientes a un alfabeto finito y fijo, S = {s1,s2,...,sq}. Los símbolos emitidos sucesivamente se eligen de acuerdo con una ley fija de probabilidad. En la fuente más sencilla admiteiremos que los símbolos emitidos son estadísticamente independientes. Llamaremos a la fuente de información fuente de memoria nula y puede describirse complemtamente mediante el alfabeto fuente S y las probabilidades con que los símbolos se presentan
+
+Llamaremos a una fuente de memoria nula, una fuente que emite una secuencia  de símbolos pertenecientes a un alfabeto finito y fijo, S = {s1,s2,...,sq} con una ley fija de probabilidad y donde los símbolos emitidos son estadísticamente independientes. La fuente de memoria nule puede describirse complemtamente mediante el alfabeto fuente S y las probabilidades con que los símbolos se presentan P(s1),P(s2),...,P(sq)
+
+Puede calcularese la información media suministrada por una fuente de información nula en la forma siguiente:
+La presencia de un símbolo si correspondiente a una cantidad de información igual a 
+I(si) = log 1/P(si) bits
+
+Entropía H(s) de la fuente de memoria nula:
+La probabilidad de que aparezca un símbolo si es precisamente P(si), de modo que la cantidad media de información por símbolo de la fuente es:
+
+$\sum_S P(s_i) I(si) bits = \sum_S P(s_i) log(1/P(s_i))$ bits
+
+Si tenemos una fuente que emite n mensajes $s_i$, la entropía es
+$\displaystyle\sum_{i=1}^{n} P(s_i) log(1/P(s_i))$
+
+Interpretaciones de la entropía:
+El valor medio ponderado de la cantidad de información del conjunto de mensajes posibles.
+Una medida de la incertidimbre promedio acerca de una variable aleatoria
+La cantidad de información obtenida al observar la aparición de cada nuevo símbolo
+
+Propiedades de la entropía
+a) La entropía es no negativa y se anula si y sólo si un estado de la variable es igual a 1 y el resto 0.
+b) La entropía es máxima (mayor incertidumbre del
+mensaje) cuando todos los valores posibles de la variable s son equiprobables .
+Si hay n estados equiprobables, entonces $p_i = 1/n$
+Luego:
+$H(S) = - \sum p_i log_2 p_i = - n(1/n) log_2 (1/n) =
+= - (log_2(1) - log_2(n))
+= log_2(n) = H(S)_max$
+
+Una fuente se puede extender mediante la extensión del alfabeto con una sucesión de los símbolos del alfabeto inicial.
+Tenemos que $H(S\exp{n}) = n H(S)$
+
+
+Modelo de un Sistema de comunicaciones:
+Canal sometido a ruido, limitado en potencia y en ancho de banda.
+
+Perturbaciones en la transmisión
+La señal recibida puede diferir de la señal
+transmitida
+Analógico - degradación de la calidad de la señal
+Digital - Errores de bits
+Causado por:
+-Atenuación y distorsión de atenuación
+-Distorsión de retardo
+-Ruido
+
+Atenuación: La intenisdad de la señal disminuye con la distancia.
+Depende del medio
+La intenisdad de la señal recibida:
+Debe ser suficiente para que se detecte
+Debe ser suficientemente mayor que el ruido para que se reciba sin error
+Crece con la frecuencia
+Ecualización: Amplificar más las frecuencias más altas.
+
+Distorsión de retardo:
+Solo en medios guidos. La velocidad de propagación en el medio varíá con la frecuencia. Para una señal limitada en banda, la velocidad es mayor cerca de la frecuencia central. Las componentes de frecuencia llegan al receptor en distintios instantes de tiempo, originando desplazamientos de fase entre las distintas frecuencias.
+
+Ruido: Señales adicionales insertadas entre el transmisor y el receptor:
+Térmico: Debido a la agitación térmica de los electrones
+Intemodulación: Se produce por falta de linealidad en el canal
+Diafonía: una senal de uan línea interfiere en otra
+Impulsivo: Implusos irregulares o picos
+
+
+Para un cierto nivel de ruido, a mayor velocidad C:
+menor período de un bit
+mayor tasa de error (se pueden corromper 2 bits en el tiempo en que antes se corrompía 1 bit)
+
+En principio, si se aumenta el ancho de banda B y la potencia de señal S, aumenta la velocidad
+binaria C.
+Pero:
+Un aumento del ancho de banda B aumenta el ruido
+Un aumento de potencia de señal S aumenta las no
+linealidades y el ruido de intermodulación
+Según Shannon, la velocidad binaria teórica máxima
+será para un canal será:
+C máx ( bps ) = B ( Hz )·log 2 ( 1 + SNR )
+
+Nyquist:
+$C ( bps ) = V ·log_2 M = 2 · B ·log_ 2 M = B  log 2 M\exp{2}$
+
+Luego, no se podrá aumentar M tanto como se quiera:
+ $M \leq \sqrt{(1 + SNR)}$
+
+Teorica 2
+La condicion necesaria y suficiente para la existencia de un código instantaneo de longitudes l1,l2, .., lq es que
+$\sum{i=1,q} r\exp{-li} \leq 1$
+O cumpliendo la condicón de los prefijos:
+No exista palabra que sea prefijo de otra palabra de longitud mayor.
+
+Llamamos codificación al establecimiento de una correspondencia entre los símbolos de una fuente y los símbolos del alfabeto de un código. EN la codificación intentaremos lograr una representacón eficiente de la información (eliminando la redundancia).
+
+Un código eficiente asigna las palabras mas cortas a símbolos más probables
+
+Longitud media de un código: $L = \sum p_i l_i$
+$L log (r) \geq  H(s)$
+donde li e sla longitud de la palabra codificada del mensaje mi
+r es la cantidad de simbolos del alfabeto del codigo
+
+log r : Cantidad promedio máxima de información de un símbolo del código
+$h = H (S) / (L log r)$ Eficiencia del código
+
+Codificador óptimo es aquel que para codificar un mensaje X usa el menor número posible de bits.
+$H(X) = \sum p(x) log 2 [1/p(x)]$
+EL logaritmo de 1/p(x) representa el número de bits necesario para codificar el mensaje X en un codificador óptimo.
+
+Nível Físico
+Existen varios medios de transmisón
+
+\begin{itemize}
+\item Por guia de onda:
+	\begin{itemize}
+	\item Par trenzado de cobre
+	\item Coaxial
+	\item Red electrica
+	\item Fibra optica
+	\end{itemize}
+
+\item Sin guia de onda (El espectro electromagnetico):
+	\begin{itemize}
+	\item Transmision por radio
+	\item Transmision por microondas
+	\item Transmision por ondas infrarojas
+	\item Transmison por laser
+	\end{itemize}
+
+\end{itemize}
+
+Veamos la estructura del sistema telefónico:
+Objetivo: Transmitir la voz humana en una forma más o menos reconocible
+Componentes:
+
+\begin{itemize}
+\item Local loops (pares trenzados, señalización analógica)
+\item Troncales (fibra óptica o microondas, digital)
+\item Oficinas de conmutación
+\end{itemize}
+
+Debido a consideraciones económicas, las
+compañías telefónicas han desarrollado políticas
+elaboradas para multiplexar varias
+conversaciones sobre un único troncal físico.
+TDM (Time Division Multiplexing)
+Los usuarios toman turnos (en “round robin”)
+obteniendo periódicamente cada uno el ancho de
+banda completo por un período de tiempo acotado
+
+FDM (Frequency Division Multiplexing)
+El espectro de frecuencias es subdividido en canales de ancho de banda acotado, que es usado a tiempo completo y exclusivo por cada usuario.
+Ejemplo de FDM y TDM: la radio AM
+
+Aunque FDM se utiliza todavía sobre cables de cobre o canales de microondas, requiere circuitería analógica no trivial.
+En contraste TDM puede ser manejado enteramente por
+electrónica digital, y se ha vuelto de más amplio uso en años recientes.
+TDM solo puede ser utilizado para datos digitales
+
+En telefonía:
+Como el “local loop” produce señales analógicas, es necesario realizar
+una conversión analógico/digital en la “end office”, donde todos los “local
+loops” individuales se combinan sobre los “trunks” (troncales).
+
+En los medios ópticos se puede incrementar la capacidad transmitiendo diversas longitudes de onda por una única fibra (tipo especial de FDM)
+Se llama WDM, multiplexacion por division de longitud de onda
+
+Taxonomía de las redes
+
+Redes de comnutación de circuitos:
+FDM/TDM
+
+Redes de conmutación de paquetes:
+Redes de Circuitos Virtuales (VC)
+	Brindan un servicio orientado a conexión (ej. X.25, ATM, etc ).
+Redes de Datagramas (Internet)
+	Brinda un servicio sin conexión
+	Sin embargo el Nivel de Transporte brinda tanto servicios orientados a conexión (TCP) como servicios sin conexión (UDP)
+Lo que antes era una “conexión física” es ahora una “conexión lógica” (o “sesión”)
+
+La ventaja de las redes de conmutación de paquetes es que tienen una división del tiempo, bajo demanda. Es decir se comparten los enlaces encolando los paquetes que compiten por el enlace cuando el mismo no esta diponible.
+
+El Teorema de Muestreo formulado por Nyquist (1924)
+dice:
+Si queremos reconstruir una señal de componente frecuencial máxima fm debemos muestrearla según f s > 2 * fm llamada
+frecuencia de sampling (también de “muestreo”, o de “modulación”)
+
+COnversion Analogica-Digital:
+Se muetra al doble de ancho de banda, obteniendo un tren de pulsos de amplitud variable
+Se cuantifican las muestras aproximándolas mediante
+un número entero de n bits
+Aparece el error de cuantificación
+
+
+Canal PCM (Pulse Code Modulation)
+Las señales analógicas son digitalizadas por un dispositivo llamado CODEC (COder-DECoder), produciendo símbolos de 8 bits por muestra (en realidad uno es para señalización).
+El CODEC toma 8000 muestras por segundo (125 $\mu$seg/muestra) debido a que el teorema de Nyquist establece que esto es suficiente para capturar toda la información “relevante” de un
+canal telefónico de 4 KHz de ancho de banda
+Luego, “Ancho de banda del cada canal de voz” = 64 Kbps.
+Como consecuencia, virtualmente todos los intervalos de tiempo
+en el sistema telefónico son múltiplos de 125 $\mu$seg.
+
+Modem convierte de digital a analogico y viceversa
+COdec concierte de analogico a digital y viceversa
+
+Modulación
+Proceso de variación de cierta característica de
+una señal sin mensaje, llamada portadora,
+de acuerdo con una señal mensaje, llamada
+moduladora
+Tipos
+
+Moduladora Analógica/Portadora Analógica: modular por amplitud o por frecuencia
+
+Moduladora Digital/Portadora Analógica: caso conocido la red telefónica
+Tecnicas:
+Desplazamiento de Amplitud (ASK):
+los valores binarios se representan mediante dos amplitudes diferentes de la portadora
+Desplazamiento de frecuencia (FSK)
+los valores bianrios se representan mediante dos frecuencias diferentes de la portadora
+Desplazamiento de Fase(PSK)
+los valores bianrios se representan mediante dos fases diferentes de la portadora
+Mixtas:
+Modulación Multinivel
+Se consigue una utilización más eficaz del ancho de banda si
+cada elemento de la señal transmitida representa más de un
+bit.
+
+Moduladora Analógica/Portadora Digital:
+Proceso llamado digitalización
+Dispositivo: codec
+
+Métodos
+Modulación por impuloss codificados(MIC, o PCM)
+Modulación Delta: codifica solo las diferencias
+
+Moduladora Digital/Portadora Digital
+Los datos binarios se transmiten codificando cada
+bit de datos en cada elemento de señal
+
+NRZ
+No retorno a cero (NRZ) Consiste en utilizar una tensión negativapara representar un 0 y una positiva para representar un 1
+Inconvenientes: para secuencias largas sin cambios se pierde el
+sincronismo (problemas de “clock recovery”)
+
+NRZI
+No retorno a cero con inversión de unos (NRZI) Los datos se
+codifican mediante la presencia o ausencia de una transición al
+principio del intervalo de un 1
+Soluciona el problema de muchos 1 consecutivos, pero no el de muchos
+0 consecutivos.
+
+Manchester: Se codifica mediante una transición en la mitad del
+intervalo de duración del bit: de bajo a alto representa un 1 y de alto
+a bajo un 0
+Baud Rate = 2 * Bit Rate
+
+Manchester Diferencial
+Bifase Diferencial (Manchester Diferencial) La codificación de un
+0 se representa por la presencia de una transición al principio del
+intervalo del bit y un 1 mediante la ausencia de transición.
+
+Alternativa para mayor eficiencia:
+Reemplazar secuencias de varios bits iguales (que dan lugar a niveles de tensión constante) por otra que proporcione transiciones para que emisor y receptor estén fielmente sincronizados (“preservar el clock”)
+El receptor debe identificar la secuencia reemplazada y sustituirla por la original.
+Ejemplo: 4B/5B
+
+
+La Velocidad de Modulación se define como el número
+de cambios de señal por unidad de tiempo, y se expresa en baudios (símbolos/segundo)
+La Velocidad de Transmisión equivale a la velocidad de modulación multiplicado por el número de bits representados por cada símbolo, expresada en bits/segundo:
+V t = V m . N
+
+El precio a pagar en las modulaciones de orden superior por la mejora
+en la Velocidad de Transmisión es una mayor Tasa de Errores.
+
+\section{Nivel de Enlace}
+Enlaces Punto a Punto
+Tenemos un “caño” serial (no hay desordenamiento)
+Pero: sujeto a ruido y fallas
+Lo que se recibe puede no ser lo que se envió: “error de transmisión”
+Objetivos:
+Proveer servicio a la capa superior
+	Confiabilidad. ¿Confiable o no confiable?
+	Control de Errores. ¿Se produjo algún error? ¿Qué hacemos con
+	los errores?
+	Control de Flujo. Más adelante: en Nivel de Transporte.
+
+Estrategia
+Encapsulamiento o “Framing”
+Encapsular los bits de Mensaje en Frames
+agregando información de control
+
+Framing:
+¿Cómo se separan los frames en un tren de bits?
+	Largo fijo
+	Largo especificado en el encabezado
+	Delimitadores de frame (con bit-stuffing)
+
+Tipo de Servicio
+Sin conexion y sin reconocimiento
+Sin conexion y con reconocimiento
+Orientado a conexion
+
+Detección y Corrección de errores
+Redundancia:
+Definiendo:
+d la mínima Distancia de Hamming entre todas las codewords de
+un código.
+e la cantidad de bits erróneos en una transmisión dada
+Necesitamos:
+m bits (datos) + r bits (redundancia) = n bits (codeword)
+$e + 1 \leq d$ para poder detectar
+$2e + 1 \leq d$ para poder corregir
+Para la confiabilidad
+Surge la nececidad de poder efectuar retransmisiones
+	Implícitas (cuando ocurre un time-out se asume que el dato se perdió)
+	Explícitas (mensajes de control específicos para pedir repetición de envío
+	de datos)
+
+Transmision Confiable:
+Problema de los dose genrales
+COnsecuencia: No existe un algoritmo para la confiablididad
+Enviamos un unico mensaje de reconocimiento (ACK)
+
+Stop And Wait:
+Cada frame debe ser reconocido por el receptor
+Problema de las renncarnaciones: Numero de Secuencia
+Existe un tiempo de bloqueo a la espera de confirmaciones
+
+Para aumentar la eficiencia, es decir estar bloqueado lo menos posible se creo la tecnica de Sliding Window
+
+Idea: LLenar el canal enviando el producto delay x Vtx
+
+Ventana de Emision: $SWS = V_{Tx}  RTT / |Frame|$
+
+Enviar segun:
+$UltimoFrameEnviado \leq UltimoFrameReconocido + SWS$
+
+ACks acumulativos: RWS =1
+Acks selectivos: RWS = SWS. Se informa los frames que llegaron incluso si no es el frame esperado.
+
+Y para distinguir reencarnaciones:
+\#frames unívocamente identificables $\geq SWS + RWS$
+
+Delay(retardo total)
+Delay = Tprop + Ttx + Tencol +Tproc
+$T_{prop}$ = retardo de propagacion. Depende de la distancia entre los hosts.
+$T_{tx}$ = Retardo de Transmision = Tamaño Trama / Velocidad de transmisión
+Significativo para enlaces de baja velocidad (o tramas muy grandes)
+Tproc: Tiempo requerido en analizar el encabezado y
+decidir a dónde enviar el paquete
+$T_{encol}$: Tiempo en que el paquete espera en un búfer hasta
+ser transmitido
+
+
+Protocolos de Acceso Multiple - Medios Compartidos:
+Vimos que podíamos “compartir” un medio de
+transmisión guiado o no guiada mediante
+TDM
+FDM
+WDM
+Otras formas de compartir: Contención estadística
+“Los sistemas en los cuales varios usuarios comparten
+un canal común de modo tal que puede dar pie a
+conflictos se conocen como sistemas de contención”
+
+El problema del acceso a un canal es hay múltiples odos compartiendo un medio, donde la simultaneidad no es posible.
+
+Protocolos de acceso multiple:
+Objetivo: maximizar el numero de comunicaciones exitosas, en promedio
+Asegurar average fairness (igualdad de oportunidades en promedio) entre todos los nodos
+
+Se requiere un control descentralizado.
+CSMA-CD
+Si está libre, tranmite
+Si esta ocupado:
+1-persistente: espera a que se libere y tranmite
+p-persistente espera a que se librer y transimite con probabilidad p
+La logica de recepcion esta establecida en el sensado para detectar colisiones
+
+
+Es necesario tener un control sobre los envios, para sabir si llegaron sin colisionar
+Largo minimo de trama:
+Se envia hasta saber que no hubo colision.
+MEcanismo de Exponential Back-Off
+Elegir un slot entre 0 y $2\exp{k-1}$, con k la cantidad de intentos.
+Esperar slot veces el RTT antes de sensar para retransmitir.
+
+Red de area local: conjunto de estacione que comparten dominio de broadcast
+Debido a que las Lans pueden ser de varios tipos de tecnologias, las estacioens deben compartit esquemas de direccionamiento.
+
+Para que pueda escalar, los switchs aprenden por que interfaces deben mandarse los mensajes en funcion del trafico de la Lan.
+
+Para que no hayan ciclos en una red (que generan problemas en especial cuando se hace broadcast) se ejecuta un algoritmos para eliminarlos: el Spanning Tree Protocol.
+Idea: Cada switch encia paquetes (BDPU) a sus vencinos propagando informacion acerca de la topologia de la Lan de manera periodica.
+
+Para lograr que las Lans escalen(el broadcast no escala), existe el enfoque de LANs virtuales, quienes permiten particionar a una LAN en varias LANs diferentes e interconectarlas.
+
+\section{IP-Teorica 4}
+Un switch de datos es un dispositivo con multiples entradas y multiples salidas. Interconecta enlaces para fomrar redes más grandes.El switch permite construir redes escalables.
+
+Dos grandes paradigmas
+Orientado a conexión: Circuitos virtuales vs Sin conexión
+
+\subsection{Circuitos Virtuales}
+Se requiere una fase para establecer una conexión y otra de
+finalización de la conexión
+Los paquetes o celdas que se transmiten después de
+establecer la conexión utilizan siempre el mismo circuito
+Analogía: llamada telefónica
+Cada switch mantiene una tabla vc que tiene:
+\begin{enumerate}
+\item El puerto por el cual llega el paquete.
+\item El identificador del circuito virtual (VCI) de entrada
+\item El puerto por el cual debe salir el paquete
+\item El identificador del circuito virtual (VCI) de salida
+\end{enumerate}
+
+Normalmente debe esperarse un RTT completo mientras se establcece una conexión para poder enviar el primer paquete o celda.
+La solicitud de conexión debe llevarse para poder enviar el primer paquete o celda, pero los demás paquetes sólo tienen un identificador muy pequeño el VCI, haciendo el overhead muy pequeño.
+Si un switch o un enlace falla, el circuito virtual falla y una nueva conexión debe establcerse.
+Establcer una conexión de antemano, permite reservar recursos en los switches (espacio en buffers)
+Tipos de Conexiones
+
+Conexión Permanente (PVC)
+Establecimiento: Este tipo de conexión la define y la finaliza el administrador de la
+red: una persona solicita a la red la creación de los registros en las
+tablas VC. Después de creado el circuito virtual ya se pueden enviar
+datos.
+Cierre de conexión:
+El administrador de la red, una persona, solicita o hace las operaciones
+que permitan “bajar” el circuito virtual.
+
+Conexión por Solicitud ( o conmutado) (SVC)
+Estaclecimiento:Cuando el nodo A desea enviar datos al nodo B envía un mensaje de
+solicitud de conexión a la red, luego el switch que la recibe se lo
+envía al siguiente, hasta llegar al nodo B. Este úlimo, si acepta la
+conexión, devolverá el identificador de circuito que desea utilizar (4
+en el ejemplo anterior) y esta “aceptación” se repite en todos los
+switches que se encuentran en el camino. Después de construir el
+circuito virtual se empieza a enviar datos.
+Cierre de conexión: Cuando el nodo A no desea enviar más datos al nodo B, termina el
+circuito virtual enviando un mensaje de finalización a la red. El switch
+que recibe el mensaje borra la línea de la tabla de VC correspondiente
+a ese circuito y envía un mensaje de finalización al siguiente switch
+para que repita la misma acción y así hasta alcanzar al nodo B. Si
+después de esto el nodo A envía un paquete o celda a la red, este
+puede ser descartado pues ya no existe el circuito virtual.
+
+Sin conexión: Datagramas
+El nodo puede enviar el paquete cuando quiera, no es necesario el establecimiento de una conexión.
+Cada paquete se envía independientemente y debe llevar toda la información necesaria para alcanzar su destino
+Analogía: SIstema postal. Cada switch mantiene una tabla de forwarding. Para cada nodo destino, tiene el puerto de salida que utiliza.
+
+Ventaja: No se debe esperar un RTT para establecenr una conexión. Un nodo puede enviar tan pronto como este listo.
+El nodo origen no tiene porque saber si la red es capaz de entregar un paquete o frame o si el nodo está listo para recibir los datos.
+Ya que los paquetes son tratados independientemente, es posible cambiar el camino para evitar los enlaces y los nodos que están fallando.
+Ya que cada paquete lleva la dirección completa del nodo destino, la información adicional de control (overhead) que lleva es mucho mayor que la utilizada en el modelo orientado a conexión.
+
+
+Conmutación Source Routing
+Toda la información sobre la topología de la red que se
+necesita para conmutar los paquetes es proporcionada
+por el nodo origen.
+
+IP
+Connectionless (datagram-based)
+Best-effort (unreliable service)
+Paquetes se pueden perder
+Enviar fuera de orden
+Entrega de copias
+No hay un cota para el tiempo de entrega
+
+Campos del header IP
+Versión: actualmente 4, comienzan los 6 pero el resto del
+formato del header no es el mismo en ambas versiones.
+Longitud Cabecera: en palabras de 32 bits (mínimo 5, máximo
+15)
+Longitud total: en bytes, máximo 65535 (incluye la cabecera)
+Identificación, DF, MF, Desplaz.
+Fragmento: campos de fragmentación
+Tiempo de vida: contador de saltos hacia atrás (se descarta
+cuando es cero)
+Checksum: de toda la cabecera (no incluye los datos)
+Dirección fuente y destino 32 bits
+
+Cada tecnología de red tiene a nivel de enlace un MTU
+(Maximum Transmission Unit). IP se adapta a la tecnología de red subyacente (
+MTU !!)
+Fragmentación ocurre si un router recibe un datagrama que
+debe reenviar a una red donde su
+$MTU <  |datagrama|$
+Los fragmentos reciben la misma cabecera que el datagrama
+original salvo por los campos ‘MF’ y ‘Desplazamiento del
+Fragmento’.
+Los fragmentos de un mismo datagrama se identifican por el
+campo ‘Identificación’.
+Todos los fragmentos, menos el último, tienen a 1 el bit MF
+(More Fragments).
+La unidad básica de fragmentación es 8 bytes. Los datos se
+reparten en tantos fragmentos como haga falta, todos
+múltiplos de 8 bytes (salvo quizá el último).
+Toda red debe aceptar un MTU de al menos 68 bytes (60 de
+cabecera y 8 de datos). Recomendado 576
+
+IP Forwarding
+Algoritmo
+if (NetworkNum del destino = NetworkNum de algunas de mis interfaces)
+then
+enviar datagrama al destino por esa interface
+else
+if (NetworkNum del destino esta en mi forwarding table) then
+enviar datagrama al NextHop router
+else
+enviar datagrama al default router
+
+
+\section{Nivel De Transporte}
+Enlace de Datos versus Transporte:
+\begin{itemize}
+	\item Potencialmente conecta muchas maquinas diferentes(establecimiento y termino de conexión explícitos)
+	\item Potencialmente diferentes RTT(requiere mecanismos adaptativos para timeout)
+	\item Potencial,emte largos retardos en la red(requiere estar preparado para el arribo de paquetes muy anitiguos)
+	\item Potencialmente diferentes capacidades en destino
+	\item Potencialemnte diferentes capacidad de red
+\end{itemize}
+
+Protocolos End to End:
+Garantía de entrega de mensajes
+Entrega de mensajes en el mismo orden que son enviados
+Entrega de a lo más una copia de cada mensaje
+Soporte para mensajes arbitrariamente largos mensajes
+Soporte de sincronización
+Permitir al receptor controlar el flujo de datos del transmisor
+Soportar múltiples procesos de nivel de aplicación en cada máquina
+
+TCP:
+\begin{itemize}
+\item \textbf{Orientado a conexión:} 3-way handshaje para setup y 2-2 way handshake para la liberación
+\item \textbf{Servicio de flujo de bytes:} App escriben bytes, TCp envía segmentos, app lee bytes
+\item \textbf{Control de flujo:} evita que el transmisor inunde al receptor
+\item \textbf{Control de congestión:} evita que el transmisor sobrecargue la red
+\item \textbf{Full duplex}
+\item \textbf{Es confiable:}
+	Acks
+	Checksums
+	Numeros de secuencia para detectar datos perdidos o desordenados
+	Retransmision de datos perdidos o corruptos despues de un timeout
+	Datos desordenados se podrán reordenar
+\end{itemize}
+
+Cada conexión es identificada por la 4-upla [SrcPort,SrcIPAdress, DstPort,DstAdress]
+Ventana deslizante + control de flujo
+Flags: SYN, FIN, RESET, PUSH , URG, ACK
+Checksum: pseudoheader(IP) + TCP header + data
+
+Un segmento TCP se envía cuando:
+	Segmento full(MSS bytes)
+	No está full, pero hay un timeout
+	Pushed por la aplicación
+
+\subsection{Ventana deslizante}
+Se agrega a la ventana deslizante la advertised window para controlar el flujo
+Lado Emisor: 
+	LastByteAcked <= LastByteSent
+	LastByteSent <= LAstByteWritten
+Se bufferean los bytes entre LstByteAcked y LastByteWritten
+
+Lado Receptor
+	LastByteRead < NextByteExpected
+	NextByteExpected <= LastByteReceived + 1
+Se bufferean los bytes entre LastByteRead y LastByteReceived
+
+
+Tamaño del buffer de envío: MaxSendBuffer
+Tamaño del buffer de recepción: MaxRcvBuffer
+Lado receptor
+LastByteRcvd - LastByteRead < = MaxRcvBuffer
+AdvertisedWindow = MaxRcvBuffer - (LastByteRcvd - NextByteRead)
+Lado Transmisor
+LastByteSent - LastByteAcked < = AdvertisedWindow
+EffectiveWindow = AdvertisedWindow - (LastByteSent - LastByteAcked)
+LastByteWritten - LastByteAcked < = MaxSendBuffer
+Bloquear Tx si (LastByteWritten - LastByteAcked) + y > MaxSenderBuffer, y
+bytes que se desean escribir.
+Siempre enviar ACK en respuesta a la llegada de segmentos de datos
+Tx persiste enviando 1 byte cuando AdvertisedWindow = 0
+
+EL protocolo UDP no garantiza la confiabilidad, pero brinda la multiplexación de paquetes hacia los distintos procesos de los hosts. Además es rápido ya que no establece una conexión.
+
+\subsection{Retransmisión Adaptativa:}
+Dado que hay una red entre los hosts, no existe un RTT fijo
+Algoritmo original:
+Se mide SampleRTTi por cada para segmento-ack.
+Calcula el promedio ponderado de RTT.
+$EstimatedRTT = \alpha * EstimatedRTT + \beta * SampleRTTi$
+	donde a +b = 1
+Se fija un TimeOut basado en EstimatedRTT: TImeout = 2 * EstiamtedRTT
+
+Algoritmo de Karn-Patridge
+No considerarRTT cuando se retransmite
+Duplicar timeout luego de cada retransmisión
+
+Algoritmo de Jacobson/Karels
+$Diff = sampleRTT - EstRTT$ \\
+$EstRTT = EstRTT + ( d * Diff)$ \\
+$Dev = Dev +d ( |Diff| - Dev)$ \\
+
+Se considera la varianza cuando fijamos el timeout
+$Timeout = \mu * EstRTT + \phi * Dev$ \\
+
+Los algoritmos son tan buenos/malos como la granularidad del reloj.
+Es muy importante la precisa estimación del timeout para controlar la congestión.
+La idea es no retransmitir cuando no es necesario.
+
+Cuando Transmitir:
+Envío de pocos bytes: retardar el ACK y de las actualizaciones de ventana
+
+Algoritmo de Nagle:
+If el tamaño de la ventana y los datos disponibles en el buffer $\geq$ MSS
+	Enviar un segmento full
+Else
+	If los datos en vuelo estan sin reconocer
+		bufferear el nuevo dato hasta que llegue el ACk
+	Else
+		enviar todos los datos nuevos ahora
+
+Para que no haya problemas cuando se anuncia AdvertisedWindow = 0, TCP envía periódicamente windows probes con 1 bytes de dato
+
+Sindrome Silly Window:
+Se envían datos en bloques y el receptor
+su app lee muy despacio , por ejemplo un 1
+byte a la vez
+Solución: 	No enviar aviso de ventana para 1 Byte
+			Esperar hasta tener una cantidad de buffer considerable
+	Buffer = MSS que se anuncio en la conexión
+	O a la mitad de la capacidad del buffer , el valor mas
+pequeño de los dos
+
+\end{document}
