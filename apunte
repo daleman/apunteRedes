@@ -4,6 +4,9 @@
 
 \begin{document}
 
+\tableofcontents
+\newpage
+
 \section{Introducción y Fundamentos}
 Hay dos Modelos fundamentales de arquitecturas de redes. Estos se basan en varias capas que son niveles de abstracción que brindan servicios a las capas superiores.
 
