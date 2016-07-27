@@ -48,6 +48,7 @@ Puede calcularese la información media suministrada por una fuente de informaci
 La presencia de un símbolo si correspondiente a una cantidad de información igual a 
 $I(si) = log 1/P(si)$ bits.\\
 
+\subsection{Entropía}
 Entropía H(s) de la fuente de memoria nula:\\
 La probabilidad de que aparezca un símbolo si es precisamente P(si), de modo que la cantidad media de información por símbolo de la fuente es:\\
 
@@ -75,57 +76,64 @@ Una fuente se puede extender mediante la extensión del alfabeto con una sucesi�
 Tenemos que $H(S\exp{n}) = n H(S)$
 
 
-Modelo de un Sistema de comunicaciones:
+\subsection{Modelo de un Sistema de comunicaciones}
 Canal sometido a ruido, limitado en potencia y en ancho de banda.
 
 Perturbaciones en la transmisión
 La señal recibida puede diferir de la señal
-transmitida
-Analógico - degradación de la calidad de la señal
-Digital - Errores de bits
+transmitida:\\
+Analógico - degradación de la calidad de la señal\\
+Digital - Errores de bits\\
 Causado por:
--Atenuación y distorsión de atenuación
--Distorsión de retardo
--Ruido
+\begin{itemize}
+\item Atenuación y distorsión de atenuación
+\item Distorsión de retardo
+\item Ruido
+\end{itemize}
 
-Atenuación: La intenisdad de la señal disminuye con la distancia.
-Depende del medio
+\subsubsection{Atenuación}
+La intenisdad de la señal disminuye con la distancia (depende del medio).
 La intenisdad de la señal recibida:
-Debe ser suficiente para que se detecte
-Debe ser suficientemente mayor que el ruido para que se reciba sin error
-Crece con la frecuencia
+\begin{itemize}
+\item Debe ser suficiente para que se detecte
+\item Debe ser suficientemente mayor que el ruido para que se reciba sin error
+\item Crece con la frecuencia
+\end{itemize}
+
 Ecualización: Amplificar más las frecuencias más altas.
 
-Distorsión de retardo:
+\subsubsection{Distorsión de retardo}
 Solo en medios guidos. La velocidad de propagación en el medio varíá con la frecuencia. Para una señal limitada en banda, la velocidad es mayor cerca de la frecuencia central. Las componentes de frecuencia llegan al receptor en distintios instantes de tiempo, originando desplazamientos de fase entre las distintas frecuencias.
 
-Ruido: Señales adicionales insertadas entre el transmisor y el receptor:
-Térmico: Debido a la agitación térmica de los electrones
-Intemodulación: Se produce por falta de linealidad en el canal
-Diafonía: una senal de uan línea interfiere en otra
-Impulsivo: Implusos irregulares o picos
-
+\subsubsection{Ruido} 
+Señales adicionales insertadas entre el transmisor y el receptor:
+\begin{description}
+\item Térmico: Debido a la agitación térmica de los electrones
+\item Intemodulación: Se produce por falta de linealidad en el canal
+\item Diafonía: una senal de uan línea interfiere en otra
+\item Impulsivo: Implusos irregulares o picos
+\end{description}
 
 Para un cierto nivel de ruido, a mayor velocidad C:
 menor período de un bit
 mayor tasa de error (se pueden corromper 2 bits en el tiempo en que antes se corrompía 1 bit)
 
 En principio, si se aumenta el ancho de banda B y la potencia de señal S, aumenta la velocidad
-binaria C.
+binaria C.\\
 Pero:
-Un aumento del ancho de banda B aumenta el ruido
+Un aumento del ancho de banda B aumenta el ruido\\
 Un aumento de potencia de señal S aumenta las no
-linealidades y el ruido de intermodulación
+linealidades y el ruido de intermodulación\\
 Según Shannon, la velocidad binaria teórica máxima
-será para un canal será:
+será para un canal será:\\
 C máx ( bps ) = B ( Hz )·log 2 ( 1 + SNR )
-
+\\
 Nyquist:
-$C ( bps ) = V log_2 M = 2  B log_ 2 M = B  log_2 M^{2}$
+$C ( bps ) = V log_2 M = 2  B log_ 2 M = B  log_2 M^{2}$\\
 
 Luego, no se podrá aumentar M tanto como se quiera:
  $M \leq \sqrt{(1 + SNR)}$
-
+\\
 Teorica 2
 La condicion necesaria y suficiente para la existencia de un código instantaneo de longitudes l1,l2, .., lq es que
 $\sum{i=1,q} r\exp{-li} \leq 1$
@@ -164,7 +172,7 @@ Diagrama de sistema de comunicaciones:
 El mensaje se envía por un medio que sufre de ruido. Luego el receptor obtiene un mensaje que contiene variaciones.
 
 Fundamentos de las Señales
-SOn ondas electromagnetivas que se propagan a través de un medio:
+Son ondas electromagnetivas que se propagan a través de un medio:
 En el vacío a la velocidad de la luz (c)
 En otros medios a una velocidad menor, tomada como factor de c
 
@@ -266,12 +274,12 @@ dice:
 Si queremos reconstruir una señal de componente frecuencial máxima fm debemos muestrearla según f s > 2 * fm llamada
 frecuencia de sampling (también de “muestreo”, o de “modulación”)
 
-COnversion Analogica-Digital:
-Se muetra al doble de ancho de banda, obteniendo un tren de pulsos de amplitud variable
-Se cuantifican las muestras aproximándolas mediante
-un número entero de n bits
-Aparece el error de cuantificación
-
+Conversion Analogica-Digital:
+\begin{enumerate}
+\item Se muetra al doble de ancho de banda, obteniendo un tren de pulsos de amplitud variable
+\item Se cuantifican las muestras aproximándolas mediante
+un número entero de n bits(aparece el error de cuantificación)
+\end{enumerate}
 
 Canal PCM (Pulse Code Modulation)
 Las señales analógicas son digitalizadas por un dispositivo llamado CODEC (COder-DECoder), produciendo símbolos de 8 bits por muestra (en realidad uno es para señalización).
@@ -279,73 +287,79 @@ El CODEC toma 8000 muestras por segundo (125 $\mu$seg/muestra) debido a que el t
 canal telefónico de 4 KHz de ancho de banda
 Luego, “Ancho de banda del cada canal de voz” = 64 Kbps.
 Como consecuencia, virtualmente todos los intervalos de tiempo
-en el sistema telefónico son múltiplos de 125 $\mu$seg.
+en el sistema telefónico son múltiplos de 125 $\mu$seg.\\
 
-Modem convierte de digital a analogico y viceversa
-COdec concierte de analogico a digital y viceversa
+Modem convierte de digital a analogico y viceversa\\
+COdec concierte de analogico a digital y viceversa\\
 
-Modulación
+\subsection{Modulación}
 Proceso de variación de cierta característica de
 una señal sin mensaje, llamada portadora,
 de acuerdo con una señal mensaje, llamada
-moduladora
-Tipos
+moduladora.\\
 
-Moduladora Analógica/Portadora Analógica: modular por amplitud o por frecuencia
+Tipos:
+\begin{description}
+\item [Moduladora Analógica/Portadora Analógica] modular por amplitud o por frecuencia
 
-Moduladora Digital/Portadora Analógica: caso conocido la red telefónica
+\item [Moduladora Digital/Portadora Analógica] caso conocido la red telefónica
 Tecnicas:
-Desplazamiento de Amplitud (ASK):
+\begin{description}
+\item [Desplazamiento de Amplitud (ASK)]
 los valores binarios se representan mediante dos amplitudes diferentes de la portadora
-Desplazamiento de frecuencia (FSK)
+\item [Desplazamiento de frecuencia (FSK)]
 los valores bianrios se representan mediante dos frecuencias diferentes de la portadora
-Desplazamiento de Fase(PSK)
+\item [Desplazamiento de Fase(PSK)]
 los valores bianrios se representan mediante dos fases diferentes de la portadora
-Mixtas:
-Modulación Multinivel
-Se consigue una utilización más eficaz del ancho de banda si
+\item [Mixtas]
+\item [Modulación Multinivel]Se consigue una utilización más eficaz del ancho de banda si
 cada elemento de la señal transmitida representa más de un
 bit.
+\end{description}
 
-Moduladora Analógica/Portadora Digital:
-Proceso llamado digitalización
-Dispositivo: codec
+\item [Moduladora Analógica/Portadora Digital]
+Proceso llamado digitalización.
+Dispositivo: codec\\
 
 Métodos
-Modulación por impuloss codificados(MIC, o PCM)
-Modulación Delta: codifica solo las diferencias
+\begin{itemize}
+\item Modulación por impulsos codificados(MIC, o PCM)
+\item Modulación Delta: codifica solo las diferencias
+\end{itemize}
 
-Moduladora Digital/Portadora Digital
+\item [Moduladora Digital/Portadora Digital]
 Los datos binarios se transmiten codificando cada
 bit de datos en cada elemento de señal
 
-NRZ
+\begin{description}
+\item [NRZ]
 No retorno a cero (NRZ) Consiste en utilizar una tensión negativapara representar un 0 y una positiva para representar un 1
 Inconvenientes: para secuencias largas sin cambios se pierde el
 sincronismo (problemas de “clock recovery”)
 
-NRZI
+\item[NRZI]
 No retorno a cero con inversión de unos (NRZI) Los datos se
 codifican mediante la presencia o ausencia de una transición al
 principio del intervalo de un 1
 Soluciona el problema de muchos 1 consecutivos, pero no el de muchos
 0 consecutivos.
 
-Manchester: Se codifica mediante una transición en la mitad del
+\item[Manchester]
+ Se codifica mediante una transición en la mitad del
 intervalo de duración del bit: de bajo a alto representa un 1 y de alto
 a bajo un 0
 Baud Rate = 2 * Bit Rate
 
-Manchester Diferencial
+\item[Manchester Diferencial]
 Bifase Diferencial (Manchester Diferencial) La codificación de un
 0 se representa por la presencia de una transición al principio del
 intervalo del bit y un 1 mediante la ausencia de transición.
 
-Alternativa para mayor eficiencia:
+\item[Alternativa para mayor eficiencia]
 Reemplazar secuencias de varios bits iguales (que dan lugar a niveles de tensión constante) por otra que proporcione transiciones para que emisor y receptor estén fielmente sincronizados (“preservar el clock”)
 El receptor debe identificar la secuencia reemplazada y sustituirla por la original.
 Ejemplo: 4B/5B
-
+\end{description}
 
 La Velocidad de Modulación se define como el número
 de cambios de señal por unidad de tiempo, y se expresa en baudios (símbolos/segundo)
@@ -354,6 +368,7 @@ V t = V m . N
 
 El precio a pagar en las modulaciones de orden superior por la mejora
 en la Velocidad de Transmisión es una mayor Tasa de Errores.
+\end{description}
 
 \section{Nivel de Enlace}
 Enlaces Punto a Punto
