@@ -27,7 +27,7 @@
 \tableofcontents
 \newpage
 
-\section{Teoria de la Información (Claude Shannon)}
+\section{Teoría de la Información (Claude Shannon)}
 Dos Teoremas Fundacionales:
 \begin{enumerate}
 \item Codificación para una fuente sin ruido
@@ -37,21 +37,21 @@ los niveles de ruido y de corrupción de los datos.Es decir, brinda un límite p
 \end{enumerate}
 
 \subsection{Información}
-Sea E un suceso que puede prensetarse con probabilidad P(E). Cuando E tiene lugar decimos que hemos recibido $I(E) = log frac{1}{P(E)}$ unidades de información.\\
+Sea E un suceso que puede presentarse con probabilidad P(E). Cuando E tiene lugar decimos que hemos recibido $I(E) = log \frac{1}{P(E)}$ unidades de información.\\
 
-Notar que si $P(frac{1}{2}), I(E)= 1 $ bit. Es decir, un bit es la cantidad de informacíon obtenida al especificar una de dos posibles alternativas igualmente probables. \\
+Notar que si $P(\frac{1}{2}), I(E)= 1 $ bit. Es decir, un bit es la cantidad de información obtenida al especificar una de dos posibles alternativas igualmente probables. \\
 
-Si tenemos una fuente emitiendo una secuencia de símbolos pertenecientes a un alfabeto finito y fijo, $S = {s_1,s_2,...,s_q}$. Los símbolos emitidos sucesivamente se eligen de acuerdo con una ley fija de probabilidad. En la fuente más sencilla admiteiremos que los símbolos emitidos son estadísticamente independientes. Llamaremos a la fuente de información fuente de memoria nula y puede describirse complemtamente mediante el alfabeto fuente S y las probabilidades con que los símbolos se presentan.\\
+Si tenemos una fuente emitiendo una secuencia de símbolos pertenecientes a un alfabeto finito y fijo, $S = {s_1,s_2,...,s_q}$. Los símbolos emitidos sucesivamente se eligen de acuerdo con una ley fija de probabilidad. En la fuente más sencilla admitiremos que los símbolos emitidos son estadísticamente independientes. Llamaremos a la fuente de información fuente de memoria nula y puede describirse completamente mediante el alfabeto fuente S y las probabilidades con que los símbolos se presentan.\\
 
-Llamaremos a una fuente de memoria nula, una fuente que emite una secuencia  de símbolos pertenecientes a un alfabeto finito y fijo, $S = {s_1,s_2,...,s_q}$ con una ley fija de probabilidad y donde los símbolos emitidos son estadísticamente independientes. La fuente de memoria nule puede describirse complemtamente mediante el alfabeto fuente S y las probabilidades con que los símbolos se presentan $P(s_1),P(s_2),...,P(s_q)$
+Llamaremos a una fuente de memoria nula, una fuente que emite una secuencia  de símbolos pertenecientes a un alfabeto finito y fijo, $S = {s_1,s_2,...,s_q}$ con una ley fija de probabilidad y donde los símbolos emitidos son estadísticamente independientes. La fuente de memoria nula puede describirse completamente mediante el alfabeto fuente S y las probabilidades con que los símbolos se presentan $P(s_1),P(s_2),...,P(s_q)$
 
-Puede calcularese la información media suministrada por una fuente de información nula en la forma siguiente:\\
+Puede calcularse la información media suministrada por una fuente de información nula en la forma siguiente:\\
 La presencia de un símbolo si correspondiente a una cantidad de información igual a 
 $I(s_i) = log \frac{1}{P(s_i)}$ bits.\\
 
 \subsection{Entropía}
 Entropía H(s) de la fuente de memoria nula:\\
-La probabilidad de que aparezca un símbolo si es precisamente P(si), de modo que la cantidad media de información por símbolo de la fuente es:\\
+La probabilidad de que aparezca un símbolo si es precisamente $P(s_i)$, de modo que la cantidad media de información por símbolo de la fuente es:\\
 
 $\sum_S P(s_i) I(si) bits = \sum_S P(s_i) log(1/P(s_i))$ bits
 
@@ -60,7 +60,7 @@ $\displaystyle\sum_{i=1}^{n} P(s_i) log(1/P(s_i))$\\
 
 Interpretaciones de la entropía:
 El valor medio ponderado de la cantidad de información del conjunto de mensajes posibles.
-Una medida de la incertidimbre promedio acerca de una variable aleatoria
+Una medida de la incertidumbre promedio acerca de una variable aleatoria
 La cantidad de información obtenida al observar la aparición de cada nuevo símbolo.\\
 
 Propiedades de la entropía:
@@ -71,12 +71,12 @@ mensaje) cuando todos los valores posibles de la variable s son equiprobables.\\
 Si hay n estados equiprobables, entonces $p_i = \frac{1}{n}$
 Luego:
 $H(S) = - \sum p_i log_2 p_i = - n(\frac{1}{n}) log_2 (\frac{1}{n}) =
-= - (log_2(1) - log_2(n))
+- (log_2(1) - log_2(n))
 = log_2(n) = H(S)_{max}$
 \end{itemize}
 
-Una fuente se puede extender mediante la extensión del alfabeto con una sucesión de los símbolos del alfabeto inicial.
-Tenemos que $H(S\exp{n}) = n H(S)$
+Una fuente se puede extender mediante la extensión del alfabeto con una sucesión de los símbolos del alfabeto inicial.\\
+Tenemos que $H(S^{n}) = n H(S)$
 
 
 \subsection{Modelo de un Sistema de comunicaciones}
@@ -95,8 +95,8 @@ Causado por:
 \end{itemize}
 
 \subsubsection{Atenuación}
-La intenisdad de la señal disminuye con la distancia (depende del medio).
-La intenisdad de la señal recibida:
+La intensidad de la señal disminuye con la distancia (depende del medio).
+La intensidad de la señal recibida:
 \begin{itemize}
 \item Debe ser suficiente para que se detecte
 \item Debe ser suficientemente mayor que el ruido para que se reciba sin error
@@ -106,15 +106,15 @@ La intenisdad de la señal recibida:
 Ecualización: Amplificar más las frecuencias más altas.
 
 \subsubsection{Distorsión de retardo}
-Solo en medios guidos. La velocidad de propagación en el medio varíá con la frecuencia. Para una señal limitada en banda, la velocidad es mayor cerca de la frecuencia central. Las componentes de frecuencia llegan al receptor en distintios instantes de tiempo, originando desplazamientos de fase entre las distintas frecuencias.
+Solo en medios guidos. La velocidad de propagación en el medio varía con la frecuencia. Para una señal limitada en banda, la velocidad es mayor cerca de la frecuencia central. Las componentes de frecuencia llegan al receptor en distintos instantes de tiempo, originando desplazamientos de fase entre las distintas frecuencias.
 
 \subsubsection{Ruido} 
 Señales adicionales insertadas entre el transmisor y el receptor:
 \begin{description}
 \item Térmico: Debido a la agitación térmica de los electrones
 \item Intemodulación: Se produce por falta de linealidad en el canal
-\item Diafonía: una senal de uan línea interfiere en otra
-\item Impulsivo: Implusos irregulares o picos
+\item Diafonía: una señal de una línea interfiere en otra
+\item Impulsivo: Impulsos irregulares o picos
 \end{description}
 
 Para un cierto nivel de ruido, a mayor velocidad C:
@@ -137,20 +137,20 @@ $C ( bps ) = V log_2 M = 2  B log_ 2 M = B  log_2 M^{2}$\\
 Luego, no se podrá aumentar M tanto como se quiera:
  $M \leq \sqrt{(1 + SNR)}$
 \\
-Teorica 2
-La condicion necesaria y suficiente para la existencia de un código instantaneo de longitudes l1,l2, .., lq es que
+Teórica 2
+La condición necesaria y suficiente para la existencia de un código instantáneo de longitudes l1,l2, .., lq es que
 $\sum{i=1,q} r\exp{-li} \leq 1$
-O cumpliendo la condicón de los prefijos:
+O cumpliendo la condición de los prefijos:
 No exista palabra que sea prefijo de otra palabra de longitud mayor.
 
-Llamamos codificación al establecimiento de una correspondencia entre los símbolos de una fuente y los símbolos del alfabeto de un código. EN la codificación intentaremos lograr una representacón eficiente de la información (eliminando la redundancia).
+Llamamos codificación al establecimiento de una correspondencia entre los símbolos de una fuente y los símbolos del alfabeto de un código. EN la codificación intentaremos lograr una representación eficiente de la información (eliminando la redundancia).
 
 Un código eficiente asigna las palabras mas cortas a símbolos más probables
 
 Longitud media de un código: $L = \sum p_i l_i$
 $L log (r) \geq  H(s)$
 donde $l_i$ es la longitud de la palabra codificada del mensaje y
-r es la cantidad de simbolos del alfabeto del codigo.\\
+r es la cantidad de símbolos del alfabeto del código.\\
 
 $log (r)$ se interpreta como la cantidad promedio máxima de información de un símbolo del código.\\
 Eficiencia del código $h = \frac{H (S)}{L log (r)}$ \\
@@ -175,49 +175,49 @@ Diagrama de sistema de comunicaciones:
 El mensaje se envía por un medio que sufre de ruido. Luego el receptor obtiene un mensaje que contiene variaciones.
 
 Fundamentos de las Señales
-Son ondas electromagnetivas que se propagan a través de un medio:
+Son ondas electromagnéticas que se propagan a través de un medio:
 En el vacío a la velocidad de la luz (c)
 En otros medios a una velocidad menor, tomada como factor de c
 
-La onda electomagnetica es un campo electrico y magentico que se propaga por un medio a una velocidad que depende de este. La onda vibra a una frecuencia determinada, con un comportamiento periodico en el eje longitudinal de su propagacion.
-EL periodo se denomida longitud de onda y se define como l=v/f (con c la velocidad y f la frecuencia de oscilacion)
+La onda electromagnética es un campo eléctrico y magnético que se propaga por un medio a una velocidad que depende de este. La onda vibra a una frecuencia determinada, con un comportamiento periódico en el eje longitudinal de su propagación.
+EL periodo se denomina longitud de onda y se define como l=v/f (con c la velocidad y f la frecuencia de oscilación)
 
 Problemas: 
 La onda, en el caso de chocar con imperfecciones produce reflexiones.
-Además si el medio tiene perdidas se puede atenuar (generalmente se atenuan propocianalemte a las distancias recorridas)
+Además si el medio tiene perdidas se puede atenuar (generalmente se atenúan proporcionalmente a las distancias recorridas)
 
 Longitud de onda: es la distancia espacial entre dos puntos correspondientes a la misma fase en dos ciclos consecutivos.\\
 
-Ancho de banda: es el rango de frecuencias alrededor del punto de amplitud máxima, donde para cada lado timo hasta que la frecuencia desciende 3 dB, o aproximadamenta a la mitad de la amplitud.\\  
-Frecuencia de corte: frecuencia donde se produce una atenuacion de 3dB.\\
+Ancho de banda: es el rango de frecuencias alrededor del punto de amplitud máxima, donde para cada lado timo hasta que la frecuencia desciende 3 dB, o aproximadamente a la mitad de la amplitud.\\  
+Frecuencia de corte: frecuencia donde se produce una atenuación de 3dB.\\
 
 Series de Fourier:
-Todas las funciones periodiasse pueden expresar como sumas de senos y cosenos.\\
+Todas las funciones periodicas pueden expresar como sumas de senos y cosenos.\\
 
 
 $f ( t ) = 1/2 a_0 + \displaystyle \sum_{i=1}^{\infty} [ a_n cos( n \omega_0 t ) + b_n sen ( n \omega_0 t ) ]$
 
-Una onda cuadrada se puede representar como una serie infinira de sonoides armonicamente relacionados.
+Una onda cuadrada se puede representar como una serie infinita de senoides armónicamente relacionados.
 
 
 
 \textbf{Existen varios medios de transmisión}
 
 \begin{itemize}
-\item Por guia de onda:
+\item Por guía de onda:
 	\begin{itemize}
 	\item Par trenzado de cobre
 	\item Coaxial
-	\item Red electrica
-	\item Fibra optica
+	\item Red eléctrica
+	\item Fibra óptica
 	\end{itemize}
 
-\item Sin guia de onda (El espectro electromagnetico):
+\item Sin guía de onda (El espectro electromagnético):
 	\begin{itemize}
-	\item Transmision por radio
-	\item Transmision por microondas
-	\item Transmision por ondas infrarojas
-	\item Transmison por laser
+	\item Transmisión por radio
+	\item Transmisión por microondas
+	\item Transmisión por ondas infrarrojas
+	\item Transmisión por láser
 	\end{itemize}
 
 \end{itemize}
@@ -253,7 +253,7 @@ TDM solo puede ser utilizado para datos digitales.\\
 
 \subsection{WDM (Wavelength Multiplexing)}
 En los medios ópticos se puede incrementar la capacidad transmitiendo diversas longitudes de onda por una única fibra (tipo especial de FDM)
-Se llama WDM, multiplexacion por division de longitud de onda.\\
+Se llama WDM, multiplexación por división de longitud de onda.\\
 \subsection{En telefonía}
 Como el “local loop” produce señales analógicas, es necesario realizar
 una conversión analógico/digital en la “end office”, donde todos los “local
@@ -276,16 +276,16 @@ loops” individuales se combinan sobre los “trunks” (troncales).\\
 \end{description}
 \end{enumerate}
 
-La ventaja de las redes de conmutación de paquetes es que tienen una división del tiempo, bajo demanda. Es decir se comparten los enlaces encolando los paquetes que compiten por el enlace cuando el mismo no esta diponible.\\
+La ventaja de las redes de conmutación de paquetes es que tienen una división del tiempo, bajo demanda. Es decir se comparten los enlaces encolando los paquetes que compiten por el enlace cuando el mismo no esta disponible.\\
 
 El Teorema de Muestreo formulado por Nyquist (1924)
 dice:\\
 Si queremos reconstruir una señal de componente frecuencial máxima fm debemos muestrearla según $f_s > 2 * f_m$ llamada
 frecuencia de sampling (también de “muestreo”, o de “modulación”).\\
 
-Conversion Analogica-Digital:
+Conversión Analógica-Digital:
 \begin{enumerate}
-\item Se muetra al doble de ancho de banda, obteniendo un tren de pulsos de amplitud variable
+\item Se muestrea al doble de ancho de banda, obteniendo un tren de pulsos de amplitud variable
 \item Se cuantifican las muestras aproximándolas mediante
 un número entero de n bits(aparece el error de cuantificación)
 \end{enumerate}
@@ -298,8 +298,8 @@ Luego, “Ancho de banda del cada canal de voz” = 64 Kbps.
 Como consecuencia, virtualmente todos los intervalos de tiempo
 en el sistema telefónico son múltiplos de 125 $\mu$seg.\\
 
-Modem convierte de digital a analogico y viceversa\\
-COdec concierte de analogico a digital y viceversa\\
+Módem convierte de digital a analógico y viceversa\\
+Cocec concierte de analógico a digital y viceversa\\
 
 \subsection{Modulación}
 Proceso de variación de cierta característica de
@@ -312,14 +312,14 @@ Tipos:
 \item [Moduladora Analógica/Portadora Analógica] modular por amplitud o por frecuencia
 
 \item [Moduladora Digital/Portadora Analógica] caso conocido la red telefónica
-Tecnicas:
+Técnicas:
 \begin{description}
 \item [Desplazamiento de Amplitud (ASK)]
 los valores binarios se representan mediante dos amplitudes diferentes de la portadora
 \item [Desplazamiento de frecuencia (FSK)]
-los valores bianrios se representan mediante dos frecuencias diferentes de la portadora
+los valores binarios se representan mediante dos frecuencias diferentes de la portadora
 \item [Desplazamiento de Fase(PSK)]
-los valores bianrios se representan mediante dos fases diferentes de la portadora
+los valores binarios se representan mediante dos fases diferentes de la portadora
 \item [Mixtas]
 \item [Modulación Multinivel]Se consigue una utilización más eficaz del ancho de banda si
 cada elemento de la señal transmitida representa más de un
@@ -342,7 +342,7 @@ bit de datos en cada elemento de señal
 
 \begin{description}
 \item [NRZ]
-No retorno a cero (NRZ) Consiste en utilizar una tensión negativapara representar un 0 y una positiva para representar un 1
+No retorno a cero (NRZ) Consiste en utilizar una tensión negativa para representar un 0 y una positiva para representar un 1
 Inconvenientes: para secuencias largas sin cambios se pierde el
 sincronismo (problemas de “clock recovery”)
 
@@ -373,7 +373,7 @@ Ejemplo: 4B/5B
 La Velocidad de Modulación se define como el número
 de cambios de señal por unidad de tiempo, y se expresa en baudios (símbolos/segundo)
 La Velocidad de Transmisión equivale a la velocidad de modulación multiplicado por el número de bits representados por cada símbolo, expresada en bits/segundo:
-V t = V m . N
+$V_t = V_m N$
 
 El precio a pagar en las modulaciones de orden superior por la mejora
 en la Velocidad de Transmisión es una mayor Tasa de Errores.
@@ -406,9 +406,9 @@ Framing:
 
 Tipo de Servicio:
 \begin{itemize}
-\item Sin conexion y sin reconocimiento
-\item Sin conexion y con reconocimiento
-\item Orientado a conexion
+\item Sin conexión y sin reconocimiento
+\item Sin conexión y con reconocimiento
+\item Orientado a conexión
 \end{itemize}
 
 Para lograr una Detección y Corrección de errores es necesario tener redundancia:
@@ -420,18 +420,18 @@ m bits (datos) + r bits (redundancia) = n bits (codeword)\\
 $e + 1 \leq d$ para poder detectar\\
 $2e + 1 \leq d$ para poder corregir\\
 Para la confiabilidad
-Surge la nececidad de poder efectuar retransmisiones:
+Surge la necesidad de poder efectuar retransmisiones:
 \begin{description}
-	\item [Implícitas] Ccuando ocurre un time-out se asume que el dato se perdió
+	\item [Implícitas] Cuando ocurre un time-out se asume que el dato se perdió
 	\item [Explícitas] Mensajes de control específicos para pedir repetición de envío
 	de datos
 \end{description}
 
-Transmision Confiable:
+Transmisión Confiable:
 \begin{itemize}
-\item Problema de los dose generales
-\item Consecuencia: No existe un algoritmo para la confiablididad
-\item Enviamos un unico mensaje de reconocimiento (ACK)
+\item Problema de los dos generales
+\item Consecuencia: No existe un algoritmo para la confiabilidad
+\item Enviamos un único mensaje de reconocimiento (ACK)
 \end{itemize}
 
 \subsection{Stop And Wait}
@@ -442,11 +442,11 @@ Existe un tiempo de bloqueo a la espera de confirmaciones.\\
 Para aumentar la eficiencia, es decir estar bloqueado lo menos posible se creo la técnica de Sliding Window.
 
 \subsection{Sliding Window}
-Idea: LLenar el canal enviando el producto delay x Vtx.\\
+Idea: Llenar el canal enviando el producto delay x Vtx.\\
 
-Ventana de Emision: $SWS = \frac{V_{TX} RTT}{|Frame|}$
+Ventana de Emisión: $SWS = \frac{V_{TX} RTT}{|Frame|}$
 
-Enviar segun:
+Enviar según:
 $UltimoFrameEnviado \leq UltimoFrameReconocido + SWS$\\
 
 ACKs acumulativos: RWS =1\\
@@ -457,16 +457,16 @@ Y para distinguir reencarnaciones:
 
 Delay(retardo total):
 $Delay = T_{prop} + T_{tx} + T_{enco}l +T_{proc}$\\
-$T_{prop}$ = retardo de propagacion. Depende de la distancia entre los hosts.\\
-$T_{tx}$ = Retardo de Transmision = Tamaño Trama / Velocidad de transmisión\\
+$T_{prop}$ = retardo de propagación. Depende de la distancia entre los hosts.\\
+$T_{tx}$ = Retardo de Transmisión = Tamaño Trama / Velocidad de transmisión\\
 Significativo para enlaces de baja velocidad (o tramas muy grandes)\\
 $T_{proc}$: Tiempo requerido en analizar el encabezado y
 decidir a dónde enviar el paquete\\
-$T_{encol}$: Tiempo en que el paquete espera en un búfer hasta
+$T_{encol}$: Tiempo en que el paquete espera en un búffer hasta
 ser transmitido
 
 
-\subsection{Protocolos de Acceso Multiple - Medios Compartidos}
+\subsection{Protocolos de Acceso Múltiple - Medios Compartidos}
 Vimos que podíamos “compartir” un medio de
 transmisión guiado o no guiada mediante:
 \begin{itemize}
@@ -479,41 +479,41 @@ un canal común de modo tal que puede dar pie a
 conflictos se conocen como sistemas de contención.
 \end{itemize}
 
-El problema del acceso a un canal es hay múltiples odos compartiendo un medio, donde la simultaneidad no es posible.
+El problema del acceso a un canal es hay múltiples nodos compartiendo un medio, donde la simultaneidad no es posible.
 
-Protocolos de acceso multiple:\\
+Protocolos de acceso múltiple:\\
 Objetivo: maximizar el numero de comunicaciones exitosas, en promedio\\
 Asegurar average fairness (igualdad de oportunidades en promedio) entre todos los nodos\\
 
 Se requiere un control descentralizado.
 \subsubsection{CSMA-CD}
-Si está libre, tranmite\\
+Si está libre, transmite\\
 Si esta ocupado:\\
-1-persistente: espera a que se libere y tranmite\\
-p-persistente espera a que se librer y transimite con probabilidad p\\
-La logica de recepcion esta establecida en el sensado para detectar colisiones\\
+1-persistente: espera a que se libere y transmite\\
+p-persistente espera a que se libere y transmite con probabilidad p\\
+La lógica de recepción esta establecida en el sensado para detectar colisiones\\
 
 
-Es necesario tener un control sobre los envios, para sabir si llegaron sin colisionar
-Largo minimo de trama:
-Se envia hasta saber que no hubo colision.
+Es necesario tener un control sobre los envíos, para saber si llegaron sin colisionar
+Largo mínimo de trama:
+Se envía hasta saber que no hubo colisión.
 
 \subsection{Mecanismo de Exponential Back-Off}
 Elegir un slot entre 0 y $2\exp{k-1}$, con k la cantidad de intentos.\\
 Esperar slot veces el RTT antes de sensar para retransmitir.\\
 
-Red de area local: conjunto de estacione que comparten dominio de broadcast
-Debido a que las Lans pueden ser de varios tipos de tecnologias, las estacioens deben compartit esquemas de direccionamiento.\\
+Red de área local: conjunto de estacione que comparten dominio de broadcast
+Debido a que las LANs pueden ser de varios tipos de tecnologías, las estaciones deben compartir esquemas de direccionamiento.\\
 
-Para que pueda escalar, los switchs aprenden por que interfaces deben mandarse los mensajes en funcion del trafico de la Lan.\\
+Para que pueda escalar, los switchs aprenden por que interfaces deben mandarse los mensajes en función del trafico de la LAN.\\
 
 Para que no hayan ciclos en una red (que generan problemas en especial cuando se hace broadcast) se ejecuta un algoritmos para eliminarlos: el Spanning Tree Protocol.\\
-Idea: Cada switch encia paquetes (BDPU) a sus vencinos propagando informacion acerca de la topologia de la Lan de manera periodica.\\
+Idea: Cada switch envía paquetes (BDPU) a sus vecinos propagando información acerca de la topología de la LAN de manera periódica.\\
 
-Para lograr que las Lans escalen(el broadcast no escala), existe el enfoque de LANs virtuales, quienes permiten particionar a una LAN en varias LANs diferentes e interconectarlas.
+Para lograr que las LANs escalen(el broadcast no escala), existe el enfoque de LANs virtuales, quienes permiten particionar a una LAN en varias LANs diferentes e interconectarlas.
 
-\section{Nivel de Rede -Teorica 4}
-Un switch de datos es un dispositivo con multiples entradas y multiples salidas. Interconecta enlaces para fomrar redes más grandes.El switch permite construir redes escalables.
+\section{Nivel de Red -Teórica 4}
+Un switch de datos es un dispositivo con múltiples entradas y múltiples salidas. Interconecta enlaces para formar redes más grandes.El switch permite construir redes escalables.
 
 Dos grandes paradigmas
 Orientado a conexión vs Sin conexión
@@ -532,10 +532,10 @@ Cada switch mantiene una tabla vc que tiene:
 \item El identificador del circuito virtual (VCI) de salida
 \end{enumerate}
 
-Normalmente debe esperarse un RTT completo mientras se establcece una conexión para poder enviar el primer paquete o celda.
+Normalmente debe esperarse un RTT completo mientras se establece una conexión para poder enviar el primer paquete o celda.
 La solicitud de conexión debe llevarse para poder enviar el primer paquete o celda, pero los demás paquetes sólo tienen un identificador muy pequeño el VCI, haciendo el overhead muy pequeño.
-Si un switch o un enlace falla, el circuito virtual falla y una nueva conexión debe establcerse.
-Establcer una conexión de antemano, permite reservar recursos en los switches (espacio en buffers)
+Si un switch o un enlace falla, el circuito virtual falla y una nueva conexión debe establecerse.
+Establecer una conexión de antemano, permite reservar recursos en los switches (espacio en buffers)
 Tipos de Conexiones
 
 Conexión Permanente (PVC)
@@ -548,9 +548,9 @@ El administrador de la red, una persona, solicita o hace las operaciones
 que permitan “bajar” el circuito virtual.
 
 Conexión por Solicitud ( o conmutado) (SVC)
-Estaclecimiento:Cuando el nodo A desea enviar datos al nodo B envía un mensaje de
+Establecimiento:Cuando el nodo A desea enviar datos al nodo B envía un mensaje de
 solicitud de conexión a la red, luego el switch que la recibe se lo
-envía al siguiente, hasta llegar al nodo B. Este úlimo, si acepta la
+envía al siguiente, hasta llegar al nodo B. Este último, si acepta la
 conexión, devolverá el identificador de circuito que desea utilizar (4
 en el ejemplo anterior) y esta “aceptación” se repite en todos los
 switches que se encuentran en el camino. Después de construir el
@@ -566,9 +566,9 @@ puede ser descartado pues ya no existe el circuito virtual.
 \subsection{Sin conexión: Datagramas}
 El nodo puede enviar el paquete cuando quiera, no es necesario el establecimiento de una conexión.
 Cada paquete se envía independientemente y debe llevar toda la información necesaria para alcanzar su destino
-Analogía: SIstema postal. Cada switch mantiene una tabla de forwarding. Para cada nodo destino, tiene el puerto de salida que utiliza.
+Analogía: Sistema postal. Cada switch mantiene una tabla de forwarding. Para cada nodo destino, tiene el puerto de salida que utiliza.
 
-Ventaja: No se debe esperar un RTT para establecenr una conexión. Un nodo puede enviar tan pronto como este listo.
+Ventaja: No se debe esperar un RTT para establecer una conexión. Un nodo puede enviar tan pronto como este listo.
 El nodo origen no tiene porque saber si la red es capaz de entregar un paquete o frame o si el nodo está listo para recibir los datos.
 Ya que los paquetes son tratados independientemente, es posible cambiar el camino para evitar los enlaces y los nodos que están fallando.
 Ya que cada paquete lleva la dirección completa del nodo destino, la información adicional de control (overhead) que lleva es mucho mayor que la utilizada en el modelo orientado a conexión.
@@ -646,8 +646,8 @@ Los protocolos de ruteo los podemos clasificar en:
 
 \subsection{Forwarding vs Routing}
 Forwarding debe seleccionar una puerta de salida basado en la dirección destino y las tablas de ruteo.\\
-En cambio ruteo es el proces mediante el cual las tablas de ruteo son construidas.
-Para encontrar estas tablas se debe calcular los caminos de menor costo entre los nodos. Esto se puede hacer de forma estática teniendo en cuenta solmente la topología de la red o dinámicamente teniendo en cuenta  tambien la carga de los nodos y enlaces.
+En cambio ruteo es el proceso mediante el cual las tablas de ruteo son construidas.
+Para encontrar estas tablas se debe calcular los caminos de menor costo entre los nodos. Esto se puede hacer de forma estática teniendo en cuenta solamente la topología de la red o dinámicamente teniendo en cuenta  también la carga de los nodos y enlaces.
 
 \subsection{Protocolos de Ruteo Interno}
 
@@ -672,20 +672,20 @@ En el algoritmo vector de distancia cada nodo transmite a sus vecinos lo que sab
 En el algoritmo de vectores de distancia cada nodo transmite a toda la red lo que sabe de sus vecinos.
 El algoritmo de estado de enlaces es estable, no genera gran tráfico y responde rápido a cambios de topología. El problema es la cantidad de información almacenada en los nodos.
 
-En particular OSPF es escalable ya que se puede realizar de manera jerárquica con nodos troncales y nodos frontera. Por último también es máß seguro (los mensajes están autentificados).
+En particular OSPF es escalable ya que se puede realizar de manera jerárquica con nodos troncales y nodos frontera. Por último también es más seguro (los mensajes están autentificados).
 
 \subsection{Protocolos de Ruteo Externo}
 Diseñado para una Internet estructurada como árbol. Se preocupa de alcanzar los nodos, no optimiza rutas.
-La idea es que cada sistema autonomo tiene uno más routers de borde y un partavoz BGO que publica las redes locales, otras redes alcanzables y entrega información de rutas.
+La idea es que cada sistema autónomo tiene uno más routers de borde y un portavoz BGP que publica las redes locales, otras redes alcanzables y entrega información de rutas.
 
 \section{Nivel De Transporte}
 Enlace de Datos versus Transporte:
 \begin{itemize}
 	\item Potencialmente conecta muchas maquinas diferentes(establecimiento y termino de conexión explícitos)
 	\item Potencialmente diferentes RTT(requiere mecanismos adaptativos para timeout)
-	\item Potencial,emte largos retardos en la red(requiere estar preparado para el arribo de paquetes muy anitiguos)
+	\item Potencial,emte largos retardos en la red(requiere estar preparado para el arribo de paquetes muy antiguos)
 	\item Potencialmente diferentes capacidades en destino
-	\item Potencialemnte diferentes capacidad de red
+	\item Potencialmente diferentes capacidad de red
 \end{itemize}
 
 \subsection{Protocolos End to End}
@@ -702,16 +702,16 @@ Enlace de Datos versus Transporte:
 \subsection{TCP}
 \begin{itemize}
 \item \textbf{Orientado a conexión:} 3-way handshaje para setup y 2-2 way handshake para la liberación
-\item \textbf{Servicio de flujo de bytes:} App escriben bytes, TCp envía segmentos, app lee bytes
+\item \textbf{Servicio de flujo de bytes:} App escriben bytes, TCP envía segmentos, app lee bytes
 \item \textbf{Control de flujo:} evita que el transmisor inunde al receptor
 \item \textbf{Control de congestión:} evita que el transmisor sobrecargue la red
 \item \textbf{Full duplex}
 \item \textbf{Es confiable:}
 	\begin{itemize}
-	\item Acks
+	\item ACKs
 	\item Checksums
-	\item Numeros de secuencia para detectar datos perdidos o desordenados
-	\item Retransmision de datos perdidos o corruptos despues de un timeout
+	\item Números de secuencia para detectar datos perdidos o desordenados
+	\item Retransmisión de datos perdidos o corruptos después de un timeout
 	\item Datos desordenados se podrán reordenar
 	\end{itemize}
 \end{itemize}
@@ -800,7 +800,7 @@ Else
 
 Para que no haya problemas cuando se anuncia AdvertisedWindow = 0, TCP envía periódicamente windows probes con 1 bytes de dato
 
-\subsection{Sindrome Silly Window}
+\subsection{Síndrome Silly Window}
 Se envían datos en bloques y el receptor
 su app lee muy despacio , por ejemplo un 1
 byte a la vez
@@ -816,17 +816,17 @@ Esperar hasta tener una cantidad de buffer considerable \\
 Hay que tener en cuenta, que a pesar de tener un bitrate físico, el medio no tiene una eficiencia total (se asume del \%65). Además el bitrate tiene en cuenta a todos los datos, incluyendo los encabezados de IP, TCP. 
 
 El modelado de las transmisiones se suele hacer con una cola M/M/1. Sea R el ancho de banda del enlace (en bps), L la longitud del paquete (bits) y a la media de tasa de llagada del paquete se mide la intensidad de tráfico como La/R.
-Cuando la intensidad es aproximadamente 0 hay un medio de retardo de cola pequeño. A médida que va creciendo la intensidad hay más retardo, en especial cuando la intensidad de tráfico (La/R) es mayor a 1 llega más trabajo del que puede servirse. Este caso tiende a un retardo infinito.
+Cuando la intensidad es aproximadamente 0 hay un medio de retardo de cola pequeño. A medida que va creciendo la intensidad hay más retardo, en especial cuando la intensidad de tráfico (La/R) es mayor a 1 llega más trabajo del que puede servirse. Este caso tiende a un retardo infinito.
 
 \subsection{Bufferbloat}
-Una médida para que no se pierdan los paquetes es agrandar los tamaños de los buffers. Esto puede llegar a mejorar el throughput de una sesión TCP pero a cosata de un incremento de la latencia (afecta de igual manera en aplicaciones basadas en UDP). Luego el tamaño de los buffers impacta en la performance las aplicaciones.
+Una medida para que no se pierdan los paquetes es agrandar los tamaños de los buffers. Esto puede llegar a mejorar el throughput de una sesión TCP pero a costa de un incremento de la latencia (afecta de igual manera en aplicaciones basadas en UDP). Luego el tamaño de los buffers impacta en la performance las aplicaciones.
 En 1985 John Nagle demuestra que el aumento del tamaño del buffer empeora el fenómeno de la congestión.
 El término bufferbloat se le llama a la existencia de los buffers excesivamente grande en los sistemas, en particular en los relacionados con las redes y comunicaciones.
 
 Desde 2011 para certificar CM DOCSIS 3.0 es mandatorio soportar control de buffer. Los parámetros de control de buffer limitan la cantidad máxima de datos que pueden ser encolados por cada flujo de servicio. De esta manera se ofrece un mecanismo para balancear la relación throughput y latencia de un servicio.
 
 \section{Congestión}
-La congestión se define como el estado de sobrecarga sosteninda de una red, donde:\\
+La congestión se define como el estado de sobrecarga sostenida de una red, donde:\\
 La demanda de recursos (enlaces y buffers) se encuentra al límite o excede la capacidad de los mismos.\\
 La consecuencia es perceptible en términos de QoS degradada.
 
@@ -846,7 +846,7 @@ Hay varias formas de encarar la solución:
 \end{description}
 
 \subsection{Consideraciones}
-Se considera que los nodos tienen una politica de schedulling \texttt{FIFO} y una politica de manejo de colas \texttt{Drop tail}. 
+Se considera que los nodos tienen una política de schedulling \texttt{FIFO} y una política de manejo de colas \texttt{Drop tail}. 
 Ambas políticas producen una sincronización global cuando los paquetes descartados provienen desde distintas conexiones no sincronizadas entre ellas (lo cual es casi siempre).
 
 \subsection{Control de Congestión vs Control de Flujo}
@@ -867,7 +867,7 @@ El crecimiento de alguna o varias de estas métricas indican congestión:
 \begin{itemize}
 \item Inundo con tráfico destinado a una misma línea de salida (la cola se llena, tail drop)
 \item Procesadores lentos o problemas con software de routeo
-\item Cuellos de botella en algunas partes del sistema (difetentes velocidades)
+\item Cuellos de botella en algunas partes del sistema (diferentes velocidades)
 \item El efecto de congestión tiende a realimentarse y empeorar
 \end{itemize}
 
@@ -880,7 +880,7 @@ Un buen indicador de la eficiencia es la $potencia = throughput/delay$.
 El control se puede implementar en los extremos de la red como en los routers dentro de ella.
 
 \subsection{Performance de la red en función de la carga}
-A medida que la carga de la red aumenta, el throughput se incrementa linealmente. Sin embargo, a médida que la carga alcanza la capacidad de la red los buffers en los routers comienzan a llenarse. Esto causa el incremento del tiempo de respuesta y disminuye el throughput.
+A medida que la carga de la red aumenta, el throughput se incrementa linealmente. Sin embargo, a medida que la carga alcanza la capacidad de la red los buffers en los routers comienzan a llenarse. Esto causa el incremento del tiempo de respuesta y disminuye el throughput.
 Una vez que los buffers de los routers comienzan a sobrecargarse ocurre la pérdida de paquetes. Bajo cargas extremas, el tiempo de respuesta tiende a infinito y el throughput tiende a cero.
  A esto se le llama el punto de colapso de congestión. Cuando empieza a caer rápidamente el throughput se le llama cliff.
 
@@ -892,21 +892,21 @@ El control de lazo cerrado con feedback explícito se da por ejemplo cuando se e
 El lazo cerrado con feedback implícito se ve por ejemplo en TCP cuando se intuye que hay congestión a partir de la llegada de los acks duplicados y los timeouts.
 
 \subsection{Random Early Detection}
-Algoritmo de notificación implícita de inminencia de congestión. Simplemente descarta el paquete (luego en TCP habrá timeouts). Podría hacerse explícita manrcando el paquete (como en ECN).
-El descarte es aleatorio temprano, es decir: en lugar de esperar a que se llene la cola, descarta cada paquete de entrada con alguna probabilidad de descarte cada vez que la cola exceda algun nivel de descarte.
+Algoritmo de notificación implícita de inminencia de congestión. Simplemente descarta el paquete (luego en TCP habrá timeouts). Podría hacerse explícita marcando el paquete (como en ECN).
+El descarte es aleatorio temprano, es decir: en lugar de esperar a que se llene la cola, descarta cada paquete de entrada con alguna probabilidad de descarte cada vez que la cola exceda algún nivel de descarte.
 
 \subsection{Flow Random Early Detection}
 Red tiene problemas de imparcialidad ya que no es justo con las conexiones de baja velocidad.\\
-Cuando se alcanza el umbral máximo, RED descarta los paquetes aleatoriamente. Puede darse que el paquete descartado pertenezca a un flujo que esté utulizando menos recursos de los que le correspondería en igualdad de conciones.
-Cuando la logitud media de la cola está en un punto fijo dentro de los dos umbrales, todos los paquetes entranstes se descartan con la misma probabilidad.
-FRED soluciona estos problemas de imparcialidad menteniendo umbrales y ocupaciones del buffer para cada flujo activo. Luego es muy costoso en cuanto al alto operación en los routers. FRED debe identificar cada flujo que tenga paquetes en el buffer y actualizar la información de cada paquete.
+Cuando se alcanza el umbral máximo, RED descarta los paquetes aleatoriamente. Puede darse que el paquete descartado pertenezca a un flujo que esté utilizando menos recursos de los que le correspondería en igualdad de condiciones.
+Cuando la longitud media de la cola está en un punto fijo dentro de los dos umbrales, todos los paquetes entrantes se descartan con la misma probabilidad.
+FRED soluciona estos problemas de imparcialidad manteniendo umbrales y ocupaciones del buffer para cada flujo activo. Luego es muy costoso en cuanto al alto operación en los routers. FRED debe identificar cada flujo que tenga paquetes en el buffer y actualizar la información de cada paquete.
 
 \subsection{Traffic Shaping}
-Cuando el tráfico es rafagoso impacta en el nivel de congestión. Traffic shaping es un método de lazo abierto que trata de guiar la congestión, forzando a los paquetes a transmitirse a una velocidad máß predecible. Intenta mantener el tráfico constante regulando la tasa media de transmisión de los datos.
+Cuando el tráfico es rafagoso impacta en el nivel de congestión. Traffic shaping es un método de lazo abierto que trata de guiar la congestión, forzando a los paquetes a transmitirse a una velocidad más predecible. Intenta mantener el tráfico constante regulando la tasa media de transmisión de los datos.
 
 \subsubsection{Leaky Bucket}
-Para entender este algoritmo se puede hacer una analogía con un balde que tiene un agujero. Cuando el balde tiene agua (datos a enviar) este transmitirá a una velovidad constate. En cambio tendrá una velocidad nula cuando el balde este vacío.
-El mecansimo de leaky buckey no es más que un sstema single server queing con tiempo de servicio constante y cola finita. Los paquetes llegan en cualquier instante, pero a los hosts se les permite poner solo un paquete por tick en la red. Cuando los paquetes son de diferentes tamaños, es mejor usar un número fijo de bytes por tick. En el caso de que la cola este llena, los paquetes qie llegan son descartados (tail drop).
+Para entender este algoritmo se puede hacer una analogía con un balde que tiene un agujero. Cuando el balde tiene agua (datos a enviar) este transmitirá a una velocidad constate. En cambio tendrá una velocidad nula cuando el balde este vacío.
+El mecanismo de leaky bucket no es más que un sistema single server queing con tiempo de servicio constante y cola finita. Los paquetes llegan en cualquier instante, pero a los hosts se les permite poner solo un paquete por tick en la red. Cuando los paquetes son de diferentes tamaños, es mejor usar un número fijo de bytes por tick. En el caso de que la cola este llena, los paquetes que llegan son descartados (tail drop).
 
 \subsubsection{Token Bucket}
 Token bucket permite picos de tráfico cuando le llega una ráfaga grande de paquetes. Cada balde genera una cantidad de tokens por una determinada cantidad de tiempo. Para tranmitir se necesita consumir un token. Si no hay, se espera.
@@ -921,7 +921,7 @@ $BW = \frac{MSS * C}{RTT \sqrt{p}} $
 Protocolos de capa de aplicación:
 \begin{itemize}
 \item Una parte de la aplicación
-'item Definición de mensajes intercambiados entre las aplicaciones y las acciones tomadas en los hosts.
+\item Definición de mensajes intercambiados entre las aplicaciones y las acciones tomadas en los hosts.
 \item Uso de servicios de comunicación proporcionados por los protocolos de capas inferiores (TCP, UDP).
 \end{itemize}
 
@@ -933,16 +933,16 @@ Protocolos de capa de aplicación:
 Para elegir un servicio de transporte adecuado para la aplicación se tiene en cuenta:
 \begin{description}
 \item [Pérdida de datos] Ciertas aplicaciones pueden tolerar pérdidas(audio, video) y otras no(FTP, mail)
-\item [Temporización] Teniendo en cuenta los retardos (Telefonía sobre Interner, juegos interactivos)
+\item [Temporización] Teniendo en cuenta los retardos (Telefonía sobre Internet, juegos interactivos)
 \item [Ancho de Banda] Algunas aplicaciones requieren un mínimo de ancho de banda (audio, video), mientras otras son más flexibles(Transferencia de archivos, mail).
 \end{description}
 
 \subsection{CDN}
-Las CDNs, son redes de deistribución de contenido. Funcionan como nexo entre los proveedores y los consumidores. COlocando servidores propios en los ISPs, servidores que cachean o almacenan enteramente el contenido, se aseguran de que los clientes lo accedan de manera local. Esto es importante para la distribución de video, en la cual la latencia razonable es importante para que el vídeo no se vea entrecortado.\\
-La distribución de usuarios a servidores se realiza mediante redirecciones DNS. Cuando un usuario solicita contenido almacenado en una CDN, la dirección IP que recibe para una URL dada se resuelve teniendo en cuenta su localización geogáfica y en la red. De esta manera se accederá a la copia del contenido presente en el servidor más cercano a él.
+Las CDNs, son redes de distribución de contenido. Funcionan como nexo entre los proveedores y los consumidores. Colocando servidores propios en los ISPs, servidores que cachean o almacenan enteramente el contenido, se aseguran de que los clientes lo accedan de manera local. Esto es importante para la distribución de video, en la cual la latencia razonable es importante para que el vídeo no se vea entrecortado.\\
+La distribución de usuarios a servidores se realiza mediante redirecciones DNS. Cuando un usuario solicita contenido almacenado en una CDN, la dirección IP que recibe para una URL dada se resuelve teniendo en cuenta su localización geográfica y en la red. De esta manera se accederá a la copia del contenido presente en el servidor más cercano a él.
 
 \subsection{BitTorrent}
-BitTorrent es un protocolo para distribuir archivos en Intenet en el cual los nodos que bajan el archivo contribuyen al mismo tiempo a distribuirlo, subiendo partes del archivo a otros nodos que lo estan bajando.\\
+BitTorrent es un protocolo para distribuir archivos en Internet en el cual los nodos que bajan el archivo contribuyen al mismo tiempo a distribuirlo, subiendo partes del archivo a otros nodos que lo están bajando.\\
 Se define swarm al conjunto de peers bajando el archivo. Los peers que tienen el archivo completo se denominan seeds.\\
 El tracker es un servidor encargado de mantener la información del swarm y de proveer al nodo con el conjunto inicial de peers al cual se va a conectar para comenzar a bajar el archivo.
 
@@ -958,7 +958,7 @@ Sistema distribuido que recibe un nombre de dominio y responde la dirección IP(
 
 \subsubsection{Componentes de DNS}
 \begin{description}
-\item [Registos DNS] Mantenidos por los administradores. Entre todos forman la base de datos DNS.
+\item [Registros DNS] Mantenidos por los administradores. Entre todos forman la base de datos DNS.
 \item [Servidores DNS (primarios y secundarios)] Servidores Autoritativos que tienen los datos originales.
 \item [Servidores no autoritativos] Dan respuesta a consultas en redes locales.
 \end{description}
@@ -974,7 +974,7 @@ Para enviar más de un tipo de archivo se usan delimitadores como técnica de fr
 Es un protocolo para mandar mails. En general nos conectamos con nuestro proveedor y luego el correo pasa por varios gateways antes de llegar al destino. Si uno no tiene el IP de la casilla de correo cacheado se realizan consultas dns para enviar el mail.
 
 \subsubsection{POP3}
-Protocolo orientado al cliente para descargar los correos y administrarlos localmente. La gran ventaja de este protocolo es que no hace falta estar conectado para acceder a los correos. Por otro lado la responsabilidad de backup corre por lado del usaurio.
+Protocolo orientado al cliente para descargar los correos y administrarlos localmente. La gran ventaja de este protocolo es que no hace falta estar conectado para acceder a los correos. Por otro lado la responsabilidad de backup corre por lado del usuario.
 
 \subsubsection{IMAP}
 Protocolo orientado al servidor. Sirve cuando se accede a la misma casilla desde distintos hosts. Permite administrar carpetas del lado de servidor y guardar estados (leídos, no leído ,etc.)
@@ -982,14 +982,14 @@ Los webmails y los celulares lo utilizan.
 
 \subsection{HTTP}
 Es un protocolo de la capa de aplicación para enviar y recibir recursos de la web. Tiene un modelo cliente servidor.\\
-HTTP 1.1 espersistente logrando que muchos objetos puedan ser transmitidos por una única conexión.
+HTTP 1.1 es persistente logrando que muchos objetos puedan ser transmitidos por una única conexión.
 Se suelen usar técnicas de cacheo para aprovecharse de la localidad temporal de los pedidos.
 
 \section{Seguridad}
 
 \begin{description}
 \item [Autenticación] Ninguna parte puede asumir en forma no autorizada la identidad de otra parte
-\item [Confidencialidad] Los mensajes sólo deben ser leídos por las partes específicadas en la comunicación
+\item [Confidencialidad] Los mensajes sólo deben ser leídos por las partes especificadas en la comunicación
 \item [Integridad] Los datos enviados no pueden ser modificados durante su transmisión
 \item [No repudiación] Ninguna de las partes puede negar haber participado en una transacción.
 \item [Autorización] Los servicios brindados sólo pueden ser accedidos por usuarios autorizados
@@ -1008,14 +1008,14 @@ Soluciona el problema de muchas claves. Cada uno tiene una clave privada (no com
 Un algoritmo muy conocido para generar las claves públicas y privadas es RSA.
 \subsection{Distribución de claves}
 Una forma de distribuir las claves en mediante un Key distribution center, quien tiene una clave compartida con sus clientes.\\
-A selecciona una clave $K_S$ y se la envía a KDC con su intención de hablar con B. El KDC desencripta este mensaje y le manda la clave de sesión a B encriptada junto con la identidad de A. Luego B entiende que A quiere iniciar una comunición con la clave $K_S$
+A selecciona una clave $K_S$ y se la envía a KDC con su intención de hablar con B. El KDC desencripta este mensaje y le manda la clave de sesión a B encriptada junto con la identidad de A. Luego B entiende que A quiere iniciar una comunicación con la clave $K_S$
 \subsection{Firma Digital}
-Mediante la encriptación con la clave privada se puede generar una firma digital. Generalmente se encripta luego con la clave pública del receptor para que sólo el receptor adecuado sea capaz de ller el mensaje.\\
+Mediante la encriptación con la clave privada se puede generar una firma digital. Generalmente se encripta luego con la clave pública del receptor para que sólo el receptor adecuado sea capaz de leer el mensaje.\\
 Sin embargo encriptar un mensaje grande con clave publica es computacionalmente caro. La solución a esto es hashear el mensaje y encriptar el hash (de longitud corta y fija).
-El receptor entonces compara el hash del mensaje recibido con la funcion de hash (ya desencriptada).\\
+El receptor entonces compara el hash del mensaje recibido con la función de hash (ya desencriptada).\\
 Funciones conocidas de hash: MD5 y SHA.\\
 HMAC hashea el mensaje mezclado con la clave de una manera standard (agregando relleno).
 \subsection{Autenticación}
-Asumiendo que A quiere establecer una comunicación con B, A le penvía su identidad a B. Dado que B no puede asegurarse de que es A el que envió el mensaje le envía un challenge (número random suficientemente grande). Luego A encripta el mensaje 2 con la clave que comparte con B y se lo devuelve a B ($K_{AB}(R_B)$). Cuando B recibe este mensaje cifrado ya está seguro que proviene de A ya que es él único que conoce la clave $K_{AB}$.\\
-Este handshake puede ser atacado mediante un ataque por sesiones. Para solucionar esto se eligen challenges de conjuntos diferentes y con claves compartidas diferente ($K_{AB} y K{AB\prime}$).
+Asumiendo que A quiere establecer una comunicación con B, A le envía su identidad a B. Dado que B no puede asegurarse de que es A el que envió el mensaje le envía un challenge (número random suficientemente grande). Luego A encripta el mensaje 2 con la clave que comparte con B y se lo devuelve a B ($K_{AB}(R_B)$). Cuando B recibe este mensaje cifrado ya está seguro que proviene de A ya que es él único que conoce la clave $K_{AB}$.\\
+Este handshake puede ser atacado mediante un ataque por sesiones. Para solucionar esto se eligen challenges de conjuntos diferentes y con claves compartidas diferente ($K_{AB} y K{AB_\prime}$).
 \end{document}
