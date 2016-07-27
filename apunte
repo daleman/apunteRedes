@@ -36,17 +36,18 @@ método de corrección de errores (codificación) frente a
 los niveles de ruido y de corrupción de los datos.Es decir, brinda un límite para la transmisión de bits. No dice nada sobre como implementar dicha codificación.
 \end{enumerate}
 
-Información: Sea E un suceso que puede prensetarse con probabilidad P(E). Cuando E tiene lugar decimos que hemos recibido $I(E) = log 1/P(E)$ unidades de información.\\
+\subsection{Información}
+Sea E un suceso que puede prensetarse con probabilidad P(E). Cuando E tiene lugar decimos que hemos recibido $I(E) = log frac{1}{P(E)}$ unidades de información.\\
 
-Notar que si $P(1/2), I(E)= 1 $ bit. Es decir, un bit es la cantidad de informacíon obtenida al especificar una de dos posibles alternativas igualmente probables. \\
+Notar que si $P(frac{1}{2}), I(E)= 1 $ bit. Es decir, un bit es la cantidad de informacíon obtenida al especificar una de dos posibles alternativas igualmente probables. \\
 
 Si tenemos una fuente emitiendo una secuencia de símbolos pertenecientes a un alfabeto finito y fijo, $S = {s_1,s_2,...,s_q}$. Los símbolos emitidos sucesivamente se eligen de acuerdo con una ley fija de probabilidad. En la fuente más sencilla admiteiremos que los símbolos emitidos son estadísticamente independientes. Llamaremos a la fuente de información fuente de memoria nula y puede describirse complemtamente mediante el alfabeto fuente S y las probabilidades con que los símbolos se presentan.\\
 
-Llamaremos a una fuente de memoria nula, una fuente que emite una secuencia  de símbolos pertenecientes a un alfabeto finito y fijo, S = {s1,s2,...,sq} con una ley fija de probabilidad y donde los símbolos emitidos son estadísticamente independientes. La fuente de memoria nule puede describirse complemtamente mediante el alfabeto fuente S y las probabilidades con que los símbolos se presentan $P(s_1),P(s_2),...,P(s_q)$
+Llamaremos a una fuente de memoria nula, una fuente que emite una secuencia  de símbolos pertenecientes a un alfabeto finito y fijo, $S = {s_1,s_2,...,s_q}$ con una ley fija de probabilidad y donde los símbolos emitidos son estadísticamente independientes. La fuente de memoria nule puede describirse complemtamente mediante el alfabeto fuente S y las probabilidades con que los símbolos se presentan $P(s_1),P(s_2),...,P(s_q)$
 
 Puede calcularese la información media suministrada por una fuente de información nula en la forma siguiente:\\
 La presencia de un símbolo si correspondiente a una cantidad de información igual a 
-$I(si) = log 1/P(si)$ bits.\\
+$I(s_i) = log \frac{1}{P(s_i)}$ bits.\\
 
 \subsection{Entropía}
 Entropía H(s) de la fuente de memoria nula:\\
@@ -63,21 +64,23 @@ Una medida de la incertidimbre promedio acerca de una variable aleatoria
 La cantidad de información obtenida al observar la aparición de cada nuevo símbolo.\\
 
 Propiedades de la entropía:
-a) La entropía es no negativa y se anula si y sólo si un estado de la variable es igual a 1 y el resto 0.
-b) La entropía es máxima (mayor incertidumbre del
-mensaje) cuando todos los valores posibles de la variable s son equiprobables .
-Si hay n estados equiprobables, entonces $p_i = 1/n$
+\begin{itemize}
+\item La entropía es no negativa y se anula si y sólo si un estado de la variable es igual a 1 y el resto 0.
+\item La entropía es máxima (mayor incertidumbre del
+mensaje) cuando todos los valores posibles de la variable s son equiprobables.\\
+Si hay n estados equiprobables, entonces $p_i = \frac{1}{n}$
 Luego:
-$H(S) = - \sum p_i log_2 p_i = - n(1/n) log_2 (1/n) =
+$H(S) = - \sum p_i log_2 p_i = - n(\frac{1}{n}) log_2 (\frac{1}{n}) =
 = - (log_2(1) - log_2(n))
-= log_2(n) = H(S)_max$
+= log_2(n) = H(S)_{max}$
+\end{itemize}
 
 Una fuente se puede extender mediante la extensión del alfabeto con una sucesión de los símbolos del alfabeto inicial.
 Tenemos que $H(S\exp{n}) = n H(S)$
 
 
 \subsection{Modelo de un Sistema de comunicaciones}
-Canal sometido a ruido, limitado en potencia y en ancho de banda.
+Canal sometido a ruido, limitado en potencia y en ancho de banda.\\
 
 Perturbaciones en la transmisión
 La señal recibida puede diferir de la señal
@@ -146,15 +149,15 @@ Un código eficiente asigna las palabras mas cortas a símbolos más probables
 
 Longitud media de un código: $L = \sum p_i l_i$
 $L log (r) \geq  H(s)$
-donde li e sla longitud de la palabra codificada del mensaje mi
-r es la cantidad de simbolos del alfabeto del codigo
+donde $l_i$ es la longitud de la palabra codificada del mensaje y
+r es la cantidad de simbolos del alfabeto del codigo.\\
 
-log r : Cantidad promedio máxima de información de un símbolo del código
-$h = H (S) / (L log r)$ Eficiencia del código
+$log (r)$ se interpreta como la cantidad promedio máxima de información de un símbolo del código.\\
+Eficiencia del código $h = \frac{H (S)}{L log (r)}$ \\
 
 Codificador óptimo es aquel que para codificar un mensaje X usa el menor número posible de bits.
-$H(X) = \sum p(x) log 2 [1/p(x)]$
-EL logaritmo de 1/p(x) representa el número de bits necesario para codificar el mensaje X en un codificador óptimo.
+$H(X) = \sum p(x) log_2 [\frac{1}{p(x)}]$
+EL logaritmo de $\frac{1}{p(x)}$ representa el número de bits necesario para codificar el mensaje X en un codificador óptimo.
 
 
 \section{Nivel Físico}
@@ -183,13 +186,13 @@ Problemas:
 La onda, en el caso de chocar con imperfecciones produce reflexiones.
 Además si el medio tiene perdidas se puede atenuar (generalmente se atenuan propocianalemte a las distancias recorridas)
 
-Longitud de onda: es la distancia espacial entre dos puntos correspondientes a la misma fase en dos ciclos consecutivos.
+Longitud de onda: es la distancia espacial entre dos puntos correspondientes a la misma fase en dos ciclos consecutivos.\\
 
-Ancho de banda:
-Frecuencia de corte: frecuencia donde se produce una atenuacion de 3dB
+Ancho de banda: es el rango de frecuencias alrededor del punto de amplitud máxima, donde para cada lado timo hasta que la frecuencia desciende 3 dB, o aproximadamenta a la mitad de la amplitud.\\  
+Frecuencia de corte: frecuencia donde se produce una atenuacion de 3dB.\\
 
 Series de Fourier:
-TOdas las funciones periodiasse pueden expresar como sumas de senos y cosenos.
+Todas las funciones periodiasse pueden expresar como sumas de senos y cosenos.\\
 
 
 $f ( t ) = 1/2 a_0 + \displaystyle \sum_{i=1}^{\infty} [ a_n cos( n \omega_0 t ) + b_n sen ( n \omega_0 t ) ]$
@@ -233,12 +236,13 @@ Debido a consideraciones económicas, las
 compañías telefónicas han desarrollado políticas
 elaboradas para multiplexar varias
 conversaciones sobre un único troncal físico.
-TDM (Time Division Multiplexing)
+
+\subsection{TDM (Time Division Multiplexing)}
 Los usuarios toman turnos (en “round robin”)
 obteniendo periódicamente cada uno el ancho de
 banda completo por un período de tiempo acotado
 
-FDM (Frequency Division Multiplexing)
+\subsection{FDM (Frequency Division Multiplexing)}
 El espectro de frecuencias es subdividido en canales de ancho de banda acotado, que es usado a tiempo completo y exclusivo por cada usuario.
 Ejemplo de FDM y TDM: la radio AM.\\
 
@@ -247,13 +251,14 @@ En contraste TDM puede ser manejado enteramente por
 electrónica digital, y se ha vuelto de más amplio uso en años recientes.
 TDM solo puede ser utilizado para datos digitales.\\
 
-En telefonía:
+\subsection{WDM (Wavelength Multiplexing)}
+En los medios ópticos se puede incrementar la capacidad transmitiendo diversas longitudes de onda por una única fibra (tipo especial de FDM)
+Se llama WDM, multiplexacion por division de longitud de onda.\\
+\subsection{En telefonía}
 Como el “local loop” produce señales analógicas, es necesario realizar
 una conversión analógico/digital en la “end office”, donde todos los “local
 loops” individuales se combinan sobre los “trunks” (troncales).\\
 
-En los medios ópticos se puede incrementar la capacidad transmitiendo diversas longitudes de onda por una única fibra (tipo especial de FDM)
-Se llama WDM, multiplexacion por division de longitud de onda.\\
 
 \subsection{Taxonomía de las redes}
 
@@ -632,6 +637,46 @@ cabecera y 8 de datos). Recomendado 576
 \ENDIF
 \end{algorithmic}
 
+\section{Ruteo}
+Los protocolos de ruteo los podemos clasificar en:
+\begin{description}
+\item [Ruteo Interno] el dominio de ruteo es un sistema autónomo.
+\item [Ruteo Externo] son intradominios, es decir rutean entre sistemas autónomos
+\end{description}
+
+\subsection{Forwarding vs Routing}
+Forwarding debe seleccionar una puerta de salida basado en la dirección destino y las tablas de ruteo.\\
+En cambio ruteo es el proces mediante el cual las tablas de ruteo son construidas.
+Para encontrar estas tablas se debe calcular los caminos de menor costo entre los nodos. Esto se puede hacer de forma estática teniendo en cuenta solmente la topología de la red o dinámicamente teniendo en cuenta  tambien la carga de los nodos y enlaces.
+
+\subsection{Protocolos de Ruteo Interno}
+
+
+\begin{tabular}{|l|l|l|}
+\hline
+ & \textbf{Distance-Vector} & \textbf{Link-State} \\ \hline
+Que informa cada nodo? & Su tabla de ruteo & Estado de sus enlaces \\ \hline 
+A quien pasa la información & Solo a sus vecinos & Inunda a toda la red\\ \hline 
+Algoritmo Utilizado & Bellman-Ford distribuido & Dijkstra \\ \hline 
+Datos Utilizados & Información de los vecinos & Estado de enlaces de cada nodo \\ \hline
+Estructura de datos & Tabla de distancias & Tabla de estado de enlaces \\
+&  Tabla de ruteo & Tablas de ruteo \\ \hline
+Características & Ciclos de ruteo & Visión consistente de enlaces \\
+ & Gran variedad de algoritmos & Algoritmo básico único \\
+ & Cálculo distribuido & Cálculo centralizado \\
+ & & Gran uso de CPU y memoria \\ \hline 
+Ejemplo de Internet & RIP & OSPF \\ \hline 
+\end{tabular}
+
+En el algoritmo vector de distancia cada nodo transmite a sus vecinos lo que sabe respecto de toda la red (distancia a todos los nodos).\\
+En el algoritmo de vectores de distancia cada nodo transmite a toda la red lo que sabe de sus vecinos.
+El algoritmo de estado de enlaces es estable, no genera gran tráfico y responde rápido a cambios de topología. El problema es la cantidad de información almacenada en los nodos.
+
+En particular OSPF es escalable ya que se puede realizar de manera jerárquica con nodos troncales y nodos frontera. Por último también es máß seguro (los mensajes están autentificados).
+
+\subsection{Protocolos de Ruteo Externo}
+Diseñado para una Internet estructurada como árbol. Se preocupa de alcanzar los nodos, no optimiza rutas.
+La idea es que cada sistema autonomo tiene uno más routers de borde y un partavoz BGO que publica las redes locales, otras redes alcanzables y entrega información de rutas.
 
 \section{Nivel De Transporte}
 Enlace de Datos versus Transporte:
@@ -714,7 +759,7 @@ Tamaño del buffer de recepción: MaxRcvBuffer
 
 
 \subsection{UDP}
-El protocolo UDP no garantiza la confiabilidad, pero brinda la multiplexación de paquetes hacia los distintos procesos de los hosts. Además es rápido ya que no establece una conexión.
+El protocolo UDP no garantiza la confiabilidad, pero brinda la multiplexación de paquetes hacia los distintos procesos de los hosts y un checksum. Además es rápido ya que no establece una conexión.
 
 \subsection{Retransmisión Adaptativa}
 Dado que hay una red entre los hosts, no existe un RTT fijo.
@@ -940,4 +985,37 @@ Es un protocolo de la capa de aplicación para enviar y recibir recursos de la w
 HTTP 1.1 espersistente logrando que muchos objetos puedan ser transmitidos por una única conexión.
 Se suelen usar técnicas de cacheo para aprovecharse de la localidad temporal de los pedidos.
 
+\section{Seguridad}
+
+\begin{description}
+\item [Autenticación] Ninguna parte puede asumir en forma no autorizada la identidad de otra parte
+\item [Confidencialidad] Los mensajes sólo deben ser leídos por las partes específicadas en la comunicación
+\item [Integridad] Los datos enviados no pueden ser modificados durante su transmisión
+\item [No repudiación] Ninguna de las partes puede negar haber participado en una transacción.
+\item [Autorización] Los servicios brindados sólo pueden ser accedidos por usuarios autorizados
+\end{description}
+
+\subsection{Criptografía}
+Cifrado por sustitución \\
+Cifrado por Transposición \\
+One time pad Cifrado inviolable \\
+
+En los algoritmos actuales se encriptan los mensajes en bloques.
+\subsection{Encriptación Simétrica}
+Se utiliza la misma llave para encriptar que para desencriptar. Una desventaja es que si quiero que lean un mensaje cifrado muchas personas tengo que crear muchas claves.
+\subsection{Encriptación Asimétrica}
+Soluciona el problema de muchas claves. Cada uno tiene una clave privada (no comparte su secreta) y una clave pública.
+Un algoritmo muy conocido para generar las claves públicas y privadas es RSA.
+\subsection{Distribución de claves}
+Una forma de distribuir las claves en mediante un Key distribution center, quien tiene una clave compartida con sus clientes.\\
+A selecciona una clave $K_S$ y se la envía a KDC con su intención de hablar con B. El KDC desencripta este mensaje y le manda la clave de sesión a B encriptada junto con la identidad de A. Luego B entiende que A quiere iniciar una comunición con la clave $K_S$
+\subsection{Firma Digital}
+Mediante la encriptación con la clave privada se puede generar una firma digital. Generalmente se encripta luego con la clave pública del receptor para que sólo el receptor adecuado sea capaz de ller el mensaje.\\
+Sin embargo encriptar un mensaje grande con clave publica es computacionalmente caro. La solución a esto es hashear el mensaje y encriptar el hash (de longitud corta y fija).
+El receptor entonces compara el hash del mensaje recibido con la funcion de hash (ya desencriptada).\\
+Funciones conocidas de hash: MD5 y SHA.\\
+HMAC hashea el mensaje mezclado con la clave de una manera standard (agregando relleno).
+\subsection{Autenticación}
+Asumiendo que A quiere establecer una comunicación con B, A le penvía su identidad a B. Dado que B no puede asegurarse de que es A el que envió el mensaje le envía un challenge (número random suficientemente grande). Luego A encripta el mensaje 2 con la clave que comparte con B y se lo devuelve a B ($K_{AB}(R_B)$). Cuando B recibe este mensaje cifrado ya está seguro que proviene de A ya que es él único que conoce la clave $K_{AB}$.\\
+Este handshake puede ser atacado mediante un ataque por sesiones. Para solucionar esto se eligen challenges de conjuntos diferentes y con claves compartidas diferente ($K_{AB} y K{AB\prime}$).
 \end{document}
