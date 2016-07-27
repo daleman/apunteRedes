@@ -1,6 +1,7 @@
 
 \documentclass[11pt,a4paper]{article}
 \usepackage[utf8]{inputenc}
+\usepackage{algorithmic}
 
 \begin{document}
 
@@ -35,33 +36,32 @@ método de corrección de errores (codificación) frente a
 los niveles de ruido y de corrupción de los datos.Es decir, brinda un límite para la transmisión de bits. No dice nada sobre como implementar dicha codificación.
 \end{enumerate}
 
-Información: Sea E un suceso que puede prensetarse con probabilidad P(E). Cuando E tiene lugar decimos que hemos recibido
-I(E) = log 1/P(E) unidades de información.
+Información: Sea E un suceso que puede prensetarse con probabilidad P(E). Cuando E tiene lugar decimos que hemos recibido $I(E) = log 1/P(E)$ unidades de información.\\
 
-Notar que si P(1/2), I(E)= 1 bit. ES decir, un bit es la cantidad de informacíon obtenida al especificar una de dos posibles alternativas igualmente probables.
+Notar que si $P(1/2), I(E)= 1 $ bit. Es decir, un bit es la cantidad de informacíon obtenida al especificar una de dos posibles alternativas igualmente probables. \\
 
-Si tenemos una fuente emitiendo una secuencia de símbolos pertenecientes a un alfabeto finito y fijo, S = {s1,s2,...,sq}. Los símbolos emitidos sucesivamente se eligen de acuerdo con una ley fija de probabilidad. En la fuente más sencilla admiteiremos que los símbolos emitidos son estadísticamente independientes. Llamaremos a la fuente de información fuente de memoria nula y puede describirse complemtamente mediante el alfabeto fuente S y las probabilidades con que los símbolos se presentan
+Si tenemos una fuente emitiendo una secuencia de símbolos pertenecientes a un alfabeto finito y fijo, $S = {s_1,s_2,...,s_q}$. Los símbolos emitidos sucesivamente se eligen de acuerdo con una ley fija de probabilidad. En la fuente más sencilla admiteiremos que los símbolos emitidos son estadísticamente independientes. Llamaremos a la fuente de información fuente de memoria nula y puede describirse complemtamente mediante el alfabeto fuente S y las probabilidades con que los símbolos se presentan.\\
 
-Llamaremos a una fuente de memoria nula, una fuente que emite una secuencia  de símbolos pertenecientes a un alfabeto finito y fijo, S = {s1,s2,...,sq} con una ley fija de probabilidad y donde los símbolos emitidos son estadísticamente independientes. La fuente de memoria nule puede describirse complemtamente mediante el alfabeto fuente S y las probabilidades con que los símbolos se presentan P(s1),P(s2),...,P(sq)
+Llamaremos a una fuente de memoria nula, una fuente que emite una secuencia  de símbolos pertenecientes a un alfabeto finito y fijo, S = {s1,s2,...,sq} con una ley fija de probabilidad y donde los símbolos emitidos son estadísticamente independientes. La fuente de memoria nule puede describirse complemtamente mediante el alfabeto fuente S y las probabilidades con que los símbolos se presentan $P(s_1),P(s_2),...,P(s_q)$
 
-Puede calcularese la información media suministrada por una fuente de información nula en la forma siguiente:
+Puede calcularese la información media suministrada por una fuente de información nula en la forma siguiente:\\
 La presencia de un símbolo si correspondiente a una cantidad de información igual a 
-I(si) = log 1/P(si) bits
+$I(si) = log 1/P(si)$ bits.\\
 
-Entropía H(s) de la fuente de memoria nula:
-La probabilidad de que aparezca un símbolo si es precisamente P(si), de modo que la cantidad media de información por símbolo de la fuente es:
+Entropía H(s) de la fuente de memoria nula:\\
+La probabilidad de que aparezca un símbolo si es precisamente P(si), de modo que la cantidad media de información por símbolo de la fuente es:\\
 
 $\sum_S P(s_i) I(si) bits = \sum_S P(s_i) log(1/P(s_i))$ bits
 
 Si tenemos una fuente que emite n mensajes $s_i$, la entropía es
-$\displaystyle\sum_{i=1}^{n} P(s_i) log(1/P(s_i))$
+$\displaystyle\sum_{i=1}^{n} P(s_i) log(1/P(s_i))$\\
 
 Interpretaciones de la entropía:
 El valor medio ponderado de la cantidad de información del conjunto de mensajes posibles.
 Una medida de la incertidimbre promedio acerca de una variable aleatoria
-La cantidad de información obtenida al observar la aparición de cada nuevo símbolo
+La cantidad de información obtenida al observar la aparición de cada nuevo símbolo.\\
 
-Propiedades de la entropía
+Propiedades de la entropía:
 a) La entropía es no negativa y se anula si y sólo si un estado de la variable es igual a 1 y el resto 0.
 b) La entropía es máxima (mayor incertidumbre del
 mensaje) cuando todos los valores posibles de la variable s son equiprobables .
@@ -121,7 +121,7 @@ será para un canal será:
 C máx ( bps ) = B ( Hz )·log 2 ( 1 + SNR )
 
 Nyquist:
-$C ( bps ) = V ·log_2 M = 2 · B ·log_ 2 M = B  log 2 M\exp{2}$
+$C ( bps ) = V log_2 M = 2  B log_ 2 M = B  log_2 M^{2}$
 
 Luego, no se podrá aumentar M tanto como se quiera:
  $M \leq \sqrt{(1 + SNR)}$
@@ -556,7 +556,7 @@ por el nodo origen.
 \end{itemize}
 
 Campos del header IP
-\begin{itemize}
+\begin{description}
 \item [Versión:] actualmente 4, comienzan los 6 pero el resto del
 formato del header no es el mismo en ambas versiones.
 \item [Longitud Cabecera:] en palabras de 32 bits (mínimo 5, máximo
@@ -568,7 +568,7 @@ formato del header no es el mismo en ambas versiones.
 cuando es cero)
 \item [Checksum:] de toda la cabecera (no incluye los datos)
 \item [Dirección fuente y destino] 32 bits
-\end{itemize}
+\end{description}
 
 Cada tecnología de red tiene a nivel de enlace un MTU
 (Maximum Transmission Unit). IP se adapta a la tecnología de red subyacente (
@@ -590,15 +590,18 @@ Toda red debe aceptar un MTU de al menos 68 bytes (60 de
 cabecera y 8 de datos). Recomendado 576
 
 \subsubsection{IP Forwarding}
-Algoritmo
-if (NetworkNum del destino = NetworkNum de algunas de mis interfaces)
-then
-enviar datagrama al destino por esa interface
-else
-if (NetworkNum del destino esta en mi forwarding table) then
-enviar datagrama al NextHop router
-else
-enviar datagrama al default router
+
+\begin{algorithmic}
+\IF{NetworkNum del destino = NetworkNum de algunas de mis interfaces}
+    \STATE{enviar datagrama al destino por esa interface}
+\ELSE
+	\IF{NetworkNum del destino esta en mi forwarding table}
+    \STATE{enviar datagrama al NextHop router}
+	\ELSE
+	\STATE{enviar datagrama al default router}
+	\ENDIF
+\ENDIF
+\end{algorithmic}
 
 
 \section{Nivel De Transporte}
@@ -630,60 +633,68 @@ Enlace de Datos versus Transporte:
 \item \textbf{Control de congestión:} evita que el transmisor sobrecargue la red
 \item \textbf{Full duplex}
 \item \textbf{Es confiable:}
-	Acks
-	Checksums
-	Numeros de secuencia para detectar datos perdidos o desordenados
-	Retransmision de datos perdidos o corruptos despues de un timeout
-	Datos desordenados se podrán reordenar
+	\begin{itemize}
+	\item Acks
+	\item Checksums
+	\item Numeros de secuencia para detectar datos perdidos o desordenados
+	\item Retransmision de datos perdidos o corruptos despues de un timeout
+	\item Datos desordenados se podrán reordenar
+	\end{itemize}
 \end{itemize}
 
-Cada conexión es identificada por la 4-upla [SrcPort,SrcIPAdress, DstPort,DstAdress]
-Ventana deslizante + control de flujo
-Flags: SYN, FIN, RESET, PUSH , URG, ACK
-Checksum: pseudoheader(IP) + TCP header + data
+Cada conexión es identificada por la 4-upla [SrcPort,SrcIPAdress, DstPort,DstAdress].\\
+Ventana deslizante + control de flujo.\\
+Flags: SYN, FIN, RESET, PUSH , URG, ACK.\\
+Checksum: pseudoheader(IP) + TCP header + data.\\
 
 Un segmento TCP se envía cuando:
-	Segmento full(MSS bytes)
-	No está full, pero hay un timeout
-	Pushed por la aplicación
+\begin{enumerate}
+	\item Segmento full(MSS bytes)
+	\item No está full, pero hay un timeout
+	\item Pushed por la aplicación
+\end{enumerate}
 
 \subsection{Ventana deslizante}
-Se agrega a la ventana deslizante la advertised window para controlar el flujo
-Lado Emisor: 
-	LastByteAcked <= LastByteSent
-	LastByteSent <= LAstByteWritten
-Se bufferean los bytes entre LstByteAcked y LastByteWritten
-
-Lado Receptor
-	LastByteRead < NextByteExpected
-	NextByteExpected <= LastByteReceived + 1
-Se bufferean los bytes entre LastByteRead y LastByteReceived
-
+Se agrega a la ventana deslizante la advertised window para controlar el flujo.\\
 
 Tamaño del buffer de envío: MaxSendBuffer
 Tamaño del buffer de recepción: MaxRcvBuffer
-Lado receptor
-LastByteRcvd - LastByteRead < = MaxRcvBuffer
-AdvertisedWindow = MaxRcvBuffer - (LastByteRcvd - NextByteRead)
-Lado Transmisor
-LastByteSent - LastByteAcked < = AdvertisedWindow
-EffectiveWindow = AdvertisedWindow - (LastByteSent - LastByteAcked)
-LastByteWritten - LastByteAcked < = MaxSendBuffer
-Bloquear Tx si (LastByteWritten - LastByteAcked) + y > MaxSenderBuffer, y
-bytes que se desean escribir.
-Siempre enviar ACK en respuesta a la llegada de segmentos de datos
-Tx persiste enviando 1 byte cuando AdvertisedWindow = 0
 
-EL protocolo UDP no garantiza la confiabilidad, pero brinda la multiplexación de paquetes hacia los distintos procesos de los hosts. Además es rápido ya que no establece una conexión.
+
+\subsubsection{Lado Emisor} 
+	LastByteAcked $\leq$ LastByteSent \\
+	LastByteSent $\leq$ LAstByteWritten \\
+	Se bufferean los bytes entre LstByteAcked y LastByteWritten \\
+	LastByteSent - LastByteAcked $\leq$ AdvertisedWindow \\
+	EffectiveWindow = AdvertisedWindow - (LastByteSent - LastByteAcked) \\
+	LastByteWritten - LastByteAcked $\leq$ MaxSendBuffer \\ 
+	Bloquear Tx si (LastByteWritten - LastByteAcked) + y > MaxSenderBuffer, y
+	bytes que se desean escribir. \\
+	Siempre enviar ACK en respuesta a la llegada de segmentos de datos \\
+	Tx persiste enviando 1 byte cuando AdvertisedWindow = 0 \\
+
+
+\subsubsection{Lado Receptor}
+	$LastByteRead < NextByteExpected$ \\
+	NextByteExpected $\leq$ LastByteReceived + 1 \\
+	Se bufferean los bytes entre LastByteRead y LastByteReceived \\
+	LastByteRcvd - LastByteRead $\leq$ MaxRcvBuffer \\
+	AdvertisedWindow = MaxRcvBuffer - (LastByteRcvd - NextByteRead) \\
+
+
+
+
+\subsection{UDP}
+El protocolo UDP no garantiza la confiabilidad, pero brinda la multiplexación de paquetes hacia los distintos procesos de los hosts. Además es rápido ya que no establece una conexión.
 
 \subsection{Retransmisión Adaptativa}
-Dado que hay una red entre los hosts, no existe un RTT fijo
+Dado que hay una red entre los hosts, no existe un RTT fijo.
 \subsubsection{Algoritmo original:}
 Se mide SampleRTTi por cada para segmento-ack.
-Calcula el promedio ponderado de RTT.
+Calcula el promedio ponderado de RTT. \\
 $EstimatedRTT = \alpha * EstimatedRTT + \beta * SampleRTTi$
-	donde a +b = 1
-Se fija un TimeOut basado en EstimatedRTT: TImeout = 2 * EstiamtedRTT
+	donde a +b = 1 \\
+Se fija un TimeOut basado en EstimatedRTT: TImeout = 2 * EstiamtedRTT \\
 
 \subsubsection{Algoritmo de Karn-Patridge}
 No considerarRTT cuando se retransmite
@@ -694,7 +705,7 @@ $Diff = sampleRTT - EstRTT$ \\
 $EstRTT = EstRTT + ( d * Diff)$ \\
 $Dev = Dev +d ( |Diff| - Dev)$ \\
 
-Se considera la varianza cuando fijamos el timeout
+Se considera la varianza cuando fijamos el timeout: \\
 $Timeout = \mu * EstRTT + \phi * Dev$ \\
 
 Los algoritmos son tan buenos/malos como la granularidad del reloj.
@@ -724,5 +735,112 @@ No enviar aviso de ventana para 1 Byte.
 Esperar hasta tener una cantidad de buffer considerable \\
 	Buffer = MSS que se anuncio en la conexión \\
 	O a la mitad de la capacidad del buffer , el valor más pequeño de los dos
+
+\section{Performance}
+
+\subsection{Midiendo la performance}
+Hay que tener en cuenta, que a pesar de tener un bitrate físico, el medio no tiene una eficiencia total (se asume del \%65). Además el bitrate tiene en cuenta a todos los datos, incluyendo los encabezados de IP, TCP. 
+
+El modelado de las transmisiones se suele hacer con una cola M/M/1. Sea R el ancho de banda del enlace (en bps), L la longitud del paquete (bits) y a la media de tasa de llagada del paquete se mide la intensidad de tráfico como La/R.
+Cuando la intensidad es aproximadamente 0 hay un medio de retardo de cola pequeño. A médida que va creciendo la intensidad hay más retardo, en especial cuando la intensidad de tráfico (La/R) es mayor a 1 llega más trabajo del que puede servirse. Este caso tiende a un retardo infinito.
+
+\subsection{Bufferbloat}
+Una médida para que no se pierdan los paquetes es agrandar los tamaños de los buffers. Esto puede llegar a mejorar el throughput de una sesión TCP pero a cosata de un incremento de la latencia (afecta de igual manera en aplicaciones basadas en UDP). Luego el tamaño de los buffers impacta en la performance las aplicaciones.
+En 1985 John Nagle demuestra que el aumento del tamaño del buffer empeora el fenómeno de la congestión.
+El término bufferbloat se le llama a la existencia de los buffers excesivamente grande en los sistemas, en particular en los relacionados con las redes y comunicaciones.
+
+Desde 2011 para certificar CM DOCSIS 3.0 es mandatorio soportar control de buffer. Los parámetros de control de buffer limitan la cantidad máxima de datos que pueden ser encolados por cada flujo de servicio. De esta manera se ofrece un mecanismo para balancear la relación throughput y latencia de un servicio.
+
+\section{Congestión}
+La congestión se define como el estado de sobrecarga sosteninda de una red, donde:\\
+La demanda de recursos (enlaces y buffers) se encuentra al límite o excede la capacidad de los mismos.\\
+La consecuencia es perceptible en términos de QoS degradada.
+
+Hay varias formas de encarar la solución:
+\begin{itemize}
+\item Sobredimensionamiento
+\item Diseño cuidadoso
+\item Control proactivo
+\item evitar (control preventivo)
+\item Decrementar la carga
+\end{itemize}
+
+\subsection{Síntomas de Congestión}
+\begin{description}
+\item [Pérdida de paquetes] los buffers se saturan en routers o switches)
+\item [Retardos crecientes] por las colas en los buffers
+\end{description}
+
+\subsection{Consideraciones}
+Se considera que los nodos tienen una politica de schedulling \texttt{FIFO} y una politica de manejo de colas \texttt{Drop tail}. 
+Ambas políticas producen una sincronización global cuando los paquetes descartados provienen desde distintas conexiones no sincronizadas entre ellas (lo cual es casi siempre).
+
+\subsection{Control de Congestión vs Control de Flujo}
+La congestión es un efecto global, involucra a todos los hosts y routers compartiendo una subred. Se evita que los transmisores sobrecarguen el interior de la red.
+En cambio el control de flujo controla el tráfico punto a punto entre un receptor y un transmisor particulares. Se evita que los transmisores sobrecarguen a receptores lentos.
+
+\subsection{Métricas}
+El crecimiento de alguna o varias de estas métricas indican congestión:
+\begin{itemize}
+\item Porcentaje de paquetes descartados por falta de espacio en buffer
+\item Longitud media de una cola (buffer)
+\item Cantidad de paquetes que generan timeout y son RTX
+\item average packet delay
+\item standard deviation of packet delay
+\end{itemize}
+
+\subsection{Causas}
+\begin{itemize}
+\item Inundo con tráfico destinado a una misma línea de salida (la cola se llena, tail drop)
+\item Procesadores lentos o problemas con software de routeo
+\item Cuellos de botella en algunas partes del sistema (difetentes velocidades)
+\item El efecto de congestión tiende a realimentarse y empeorar
+\end{itemize}
+
+\subsection{Control de Congestión}
+Es el esfuerzo hecho por los nodos de la red para prevenir o responder a sobrecargas de la red que conducen a pérdidas no controladas de paquetes.
+Se pueden preasignar recursos para evitar la congestión. Otra opción es la de liberar recursos y controlar la congestión sólo si ocurre (cuando ocurre).\\
+
+La idea es que sea utilizada eficientemente y al mismo tiempo en forma equitativa.\\
+Un buen indicador de la eficiencia es la $potencia = throughput/delay$.
+El control se puede implementar en los extremos de la red como en los routers dentro de ella.
+
+\subsection{Performance de la red en función de la carga}
+A medida que la carga de la red aumenta, el throughput se incrementa linealmente. Sin embargo, a médida que la carga alcanza la capacidad de la red los buffers en los routers comienzan a llenarse. Esto causa el incremento del tiempo de respuesta y disminuye el throughput.
+Una vez que los buffers de los routers comienzan a sobrecargarse ocurre la pérdida de paquetes. Bajo cargas extremas, el tiempo de respuesta tiende a infinito y el throughput tiende a cero.
+ A esto se le llama el punto de colapso de congestión. Cuando empieza a caer rápidamente el throughput se le llama cliff.
+
+\subsection{Teoría de Control}
+Los algoritmos de control de congestión se pueden clasificar en lazo abierto y lazo cerrado. A su vez los de lazo cerrado se pueden clasificar de a cuerdo a como realizan la realimentación: implícita (TCP) o explícita (ECN).
+EL control de lazo abierto se ve principalmente en redes de conmutación de circuitos.
+
+El control de lazo cerrado con feedback explícito se da por ejemplo cuando se envía un mensaje con el bit ECN (Explicit Congestion Notification) en 1.
+El lazo cerrado con feedback implícito se ve por ejemplo en TCP cuando se intuye que hay congestión a partir de la llegada de los acks duplicados y los timeouts.
+
+\subsection{Random Early Detection}
+Algoritmo de notificación implícita de inminencia de congestión. Simplemente descarta el paquete (luego en TCP habrá timeouts). Podría hacerse explícita manrcando el paquete (como en ECN).
+El descarte es aleatorio temprano, es decir: en lugar de esperar a que se llene la cola, descarta cada paquete de entrada con alguna probabilidad de descarte cada vez que la cola exceda algun nivel de descarte.
+
+\subsection{Flow Random Early Detection}
+Red tiene problemas de imparcialidad ya que no es justo con las conexiones de baja velocidad.\\
+Cuando se alcanza el umbral máximo, RED descarta los paquetes aleatoriamente. Puede darse que el paquete descartado pertenezca a un flujo que esté utulizando menos recursos de los que le correspondería en igualdad de conciones.
+Cuando la logitud media de la cola está en un punto fijo dentro de los dos umbrales, todos los paquetes entranstes se descartan con la misma probabilidad.
+FRED soluciona estos problemas de imparcialidad menteniendo umbrales y ocupaciones del buffer para cada flujo activo. Luego es muy costoso en cuanto al alto operación en los routers. FRED debe identificar cada flujo que tenga paquetes en el buffer y actualizar la información de cada paquete.
+
+\subsection{Traffic Shaping}
+Cuando el tráfico es rafagoso impacta en el nivel de congestión. Traffic shaping es un método de lazo abierto que trata de guiar la congestión, forzando a los paquetes a transmitirse a una velocidad máß predecible. Intenta mantener el tráfico constante regulando la tasa media de transmisión de los datos.
+
+\subsubsection{Leaky Bucket}
+Para entender este algoritmo se puede hacer una analogía con un balde que tiene un agujero. Cuando el balde tiene agua (datos a enviar) este transmitirá a una velovidad constate. En cambio tendrá una velocidad nula cuando el balde este vacío.
+El mecansimo de leaky buckey no es más que un sstema single server queing con tiempo de servicio constante y cola finita. Los paquetes llegan en cualquier instante, pero a los hosts se les permite poner solo un paquete por tick en la red. Cuando los paquetes son de diferentes tamaños, es mejor usar un número fijo de bytes por tick. En el caso de que la cola este llena, los paquetes qie llegan son descartados (tail drop).
+
+\subsubsection{Token Bucket}
+Token bucket permite picos de tráfico cuando le llega una ráfaga grande de paquetes. Cada balde genera una cantidad de tokens por una determinada cantidad de tiempo. Para tranmitir se necesita consumir un token. Si no hay, se espera.
+En definitiva Token bucket permite un BurstSize y Average Rate.
+
+\subsubsection{Control de Congestión en TCP}
+Additive increase y multiplicative decrease por RTT, de acuerdo a si hay ACK o no.\\
+Fórmula de Mathis:
+$BW = \frac{MSS * C}{RTT \sqrt{p}} $
 
 \end{document}
