@@ -858,4 +858,72 @@ Additive increase y multiplicative decrease por RTT, de acuerdo a si hay ACK o n
 Fórmula de Mathis:
 $BW = \frac{MSS * C}{RTT \sqrt{p}} $
 
+\section{Capa de Aplicación}
+Protocolos de capa de aplicación:
+\begin{itemize}
+\item Una parte de la aplicación
+'item Definición de mensajes intercambiados entre las aplicaciones y las acciones tomadas en los hosts.
+\item Uso de servicios de comunicación proporcionados por los protocolos de capas inferiores (TCP, UDP).
+\end{itemize}
+
+
+\textbf{Paradigma tipo cliente-servidor:} El cliente inicia el contacto con el servidor y solicita un servicio. El servidor proporciona el servicio solicitado al ciente.\\
+
+\textbf{Direccionamiento de procesos:} [IP fuente, puerto fuente, IP destino, Puerto Destino]\\
+
+Para elegir un servicio de transporte adecuado para la aplicación se tiene en cuenta:
+\begin{description}
+\item [Pérdida de datos] Ciertas aplicaciones pueden tolerar pérdidas(audio, video) y otras no(FTP, mail)
+\item [Temporización] Teniendo en cuenta los retardos (Telefonía sobre Interner, juegos interactivos)
+\item [Ancho de Banda] Algunas aplicaciones requieren un mínimo de ancho de banda (audio, video), mientras otras son más flexibles(Transferencia de archivos, mail).
+\end{description}
+
+\subsection{CDN}
+Las CDNs, son redes de deistribución de contenido. Funcionan como nexo entre los proveedores y los consumidores. COlocando servidores propios en los ISPs, servidores que cachean o almacenan enteramente el contenido, se aseguran de que los clientes lo accedan de manera local. Esto es importante para la distribución de video, en la cual la latencia razonable es importante para que el vídeo no se vea entrecortado.\\
+La distribución de usuarios a servidores se realiza mediante redirecciones DNS. Cuando un usuario solicita contenido almacenado en una CDN, la dirección IP que recibe para una URL dada se resuelve teniendo en cuenta su localización geogáfica y en la red. De esta manera se accederá a la copia del contenido presente en el servidor más cercano a él.
+
+\subsection{BitTorrent}
+BitTorrent es un protocolo para distribuir archivos en Intenet en el cual los nodos que bajan el archivo contribuyen al mismo tiempo a distribuirlo, subiendo partes del archivo a otros nodos que lo estan bajando.\\
+Se define swarm al conjunto de peers bajando el archivo. Los peers que tienen el archivo completo se denominan seeds.\\
+El tracker es un servidor encargado de mantener la información del swarm y de proveer al nodo con el conjunto inicial de peers al cual se va a conectar para comenzar a bajar el archivo.
+
+\subsection{DNS}
+Sistema distribuido que recibe un nombre de dominio y responde la dirección IP(en realidad es un sistema de traducción genérico).Se dejó de usar el archivos hosts que era una lista de IPs,dominio, dado que no escalaba y era propenso a errores.
+
+\subsubsection{Decisiones de implementación}
+\begin{description}
+\item [Arquitectura cliente-servidor] Ahorramos mantenimiento
+\item [Distribuido] Evitamos fallas graves por caídas de nodos
+\item [Jerarquías de servidores de nombres] Le da escalabilidad
+\end{description}
+
+\subsubsection{Componentes de DNS}
+\begin{description}
+\item [Registos DNS] Mantenidos por los administradores. Entre todos forman la base de datos DNS.
+\item [Servidores DNS (primarios y secundarios)] Servidores Autoritativos que tienen los datos originales.
+\item [Servidores no autoritativos] Dan respuesta a consultas en redes locales.
+\end{description}
+
+Las consultas pueden ser iterativas o recursivas. Generalmente se cachean los Name Servers para consultas posteriores.
+
+\subsection{Correo Electrónico}
+La idea es tener un protocolo sencillo, los mensajes se transfieren en texto en formato ASCII. Para dar lugar a imágenes y demás se creó la extension MIME.\\
+Un mail se basa e un Header que contiene el from, to y subject y el cuerpo del mail.
+Para enviar más de un tipo de archivo se usan delimitadores como técnica de framing.
+
+\subsubsection{SMTP}
+Es un protocolo para mandar mails. En general nos conectamos con nuestro proveedor y luego el correo pasa por varios gateways antes de llegar al destino. Si uno no tiene el IP de la casilla de correo cacheado se realizan consultas dns para enviar el mail.
+
+\subsubsection{POP3}
+Protocolo orientado al cliente para descargar los correos y administrarlos localmente. La gran ventaja de este protocolo es que no hace falta estar conectado para acceder a los correos. Por otro lado la responsabilidad de backup corre por lado del usaurio.
+
+\subsubsection{IMAP}
+Protocolo orientado al servidor. Sirve cuando se accede a la misma casilla desde distintos hosts. Permite administrar carpetas del lado de servidor y guardar estados (leídos, no leído ,etc.)
+Los webmails y los celulares lo utilizan.
+
+\subsection{HTTP}
+Es un protocolo de la capa de aplicación para enviar y recibir recursos de la web. Tiene un modelo cliente servidor.\\
+HTTP 1.1 espersistente logrando que muchos objetos puedan ser transmitidos por una única conexión.
+Se suelen usar técnicas de cacheo para aprovecharse de la localidad temporal de los pedidos.
+
 \end{document}
